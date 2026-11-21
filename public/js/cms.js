@@ -234,6 +234,9 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 View Public Site
               </a>
+              <a href="#home" class="btn btn-primary btn-sm" id="btn-close-admin-topbar" style="background: var(--royal-burgundy, #3B482E); color: #fff;">
+                ✕ Exit Portal
+              </a>
             </div>
           </header>
 
@@ -268,37 +271,37 @@
   // Login Screen
   function renderLoginScreen() {
     return `
-      <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #FAF8F5; padding: 2rem;">
-        <div style="background: #FFFFFF; border: 1px solid var(--border-light); border-radius: var(--radius-xs); padding: 3rem 2.5rem; max-width: 440px; width: 100%; box-shadow: var(--shadow-warm-lg);">
-          <div style="text-align: center; margin-bottom: 2rem;">
-            <div style="width: 48px; height: 48px; background: var(--royal-burgundy); border: 1px solid var(--royal-gold); color: #FFFFFF; border-radius: var(--radius-xs); margin: 0 auto 1rem auto; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--font-royal); font-size: 1.2rem; box-shadow: 0 4px 12px rgba(92, 19, 36, 0.25);">SG</div>
-            <h2 style="font-family: var(--font-serif); font-size: 1.75rem; color: var(--text-title); margin-bottom: 0.4rem;">Sahu Global Admin</h2>
-            <p style="font-size: 0.88rem; color: var(--text-muted);">Content Management System & Buyer CRM</p>
+      <div class="admin-login-modal-overlay" id="admin-login-backdrop">
+        <div class="admin-login-card" onclick="event.stopPropagation()">
+          <button type="button" class="admin-close-modal-btn" id="btn-close-admin-modal" aria-label="Close Portal" title="Close Portal (Esc)">✕</button>
+          <div style="text-align: center; margin-bottom: 1.75rem;">
+            <div style="width: 48px; height: 48px; background: var(--royal-burgundy, #3B482E); border: 1px solid var(--royal-gold, #687A54); color: #FFFFFF; border-radius: var(--radius-xs); margin: 0 auto 1rem auto; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--font-royal, 'Plus Jakarta Sans'); font-size: 1.2rem; box-shadow: 0 4px 12px rgba(59, 72, 46, 0.25);">SG</div>
+            <h2 style="font-family: var(--font-royal, 'Plus Jakarta Sans'); font-size: 1.6rem; font-weight: 800; color: var(--text-title, #1A2216); margin-bottom: 0.35rem; letter-spacing: -0.01em;">Sahu Global Client Portal</h2>
+            <p style="font-size: 0.88rem; color: var(--text-muted, #5D6B57);">B2B Client Management & Lead Verification</p>
           </div>
 
-          <div style="background: var(--color-bg-alt); border: 1px solid var(--border-strong); border-radius: var(--radius-xs); padding: 1rem; margin-bottom: 1.5rem; font-size: 0.82rem; color: var(--text-body);">
-            <strong style="color: var(--royal-burgundy);">Client Demo Access:</strong><br>
-            Email: <code style="color: var(--royal-burgundy); font-weight: 600;">admin@sahuglobal.com</code><br>
-            Password: <code style="color: var(--royal-burgundy); font-weight: 600;">sahu2026</code>
+          <div style="background: var(--color-bg-alt, #EBF1E8); border: 1px solid var(--border-strong, #D0DEC9); border-radius: var(--radius-xs); padding: 0.85rem 1rem; margin-bottom: 1.25rem; font-size: 0.82rem; color: var(--text-body, #2E382A);">
+            <strong style="color: var(--royal-burgundy, #3B482E);">Client Demo Access:</strong><br>
+            Email: <code style="color: var(--royal-burgundy, #3B482E); font-weight: 600;">admin@sahuglobal.com</code> &bull; Password: <code style="color: var(--royal-burgundy, #3B482E); font-weight: 600;">sahu2026</code>
           </div>
 
-          <form id="admin-login-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
-            <div class="form-group">
-              <label>Administrator Email</label>
-              <input type="email" id="login-email" class="form-control" value="admin@sahuglobal.com" required>
+          <form id="admin-login-form" style="display: flex; flex-direction: column; gap: 1rem;">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label style="font-size: 0.82rem; font-weight: 600; color: var(--text-title, #1A2216); margin-bottom: 0.35rem; display: block;">Administrator / Client Email</label>
+              <input type="email" id="login-email" class="form-control" value="admin@sahuglobal.com" required style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid var(--border-light, #E0E8DC); border-radius: 4px; font-size: 0.9rem;">
             </div>
-            <div class="form-group">
-              <label>Password</label>
-              <input type="password" id="login-password" class="form-control" value="sahu2026" required>
+            <div class="form-group" style="margin-bottom: 0;">
+              <label style="font-size: 0.82rem; font-weight: 600; color: var(--text-title, #1A2216); margin-bottom: 0.35rem; display: block;">Access Password</label>
+              <input type="password" id="login-password" class="form-control" value="sahu2026" required style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid var(--border-light, #E0E8DC); border-radius: 4px; font-size: 0.9rem;">
             </div>
-            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 0.5rem;">
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 0.5rem; padding: 0.75rem 1.25rem; font-weight: 700;">
               Sign Into Dashboard
             </button>
-            <button type="button" id="btn-quick-demo-login" class="btn btn-secondary btn-sm" style="width: 100%;">
+            <button type="button" id="btn-quick-demo-login" class="btn btn-secondary btn-sm" style="width: 100%; padding: 0.6rem 1rem;">
               Instant One-Click Demo Login
             </button>
-            <a href="#home" style="text-align: center; font-size: 0.84rem; color: var(--text-muted); text-decoration: none; margin-top: 0.5rem;">
-              ← Back to Public Website
+            <a href="#home" id="btn-cancel-to-website" style="text-align: center; font-size: 0.85rem; color: var(--text-muted, #5D6B57); text-decoration: none; margin-top: 0.35rem; font-weight: 500;">
+              &larr; Return to Public Website
             </a>
           </form>
         </div>
@@ -309,6 +312,26 @@
   function attachLoginEvents() {
     const form = document.getElementById('admin-login-form');
     const quickBtn = document.getElementById('btn-quick-demo-login');
+    const closeBtn = document.getElementById('btn-close-admin-modal');
+    const cancelLink = document.getElementById('btn-cancel-to-website');
+    const backdrop = document.getElementById('admin-login-backdrop');
+
+    const exitPortal = () => {
+      window.location.hash = '#home';
+    };
+
+    if (closeBtn) closeBtn.addEventListener('click', exitPortal);
+    if (cancelLink) {
+      cancelLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        exitPortal();
+      });
+    }
+    if (backdrop) {
+      backdrop.addEventListener('click', (e) => {
+        if (e.target === backdrop) exitPortal();
+      });
+    }
 
     const handleLogin = (email, password) => {
       window.CMS_STATE.isAuthenticated = true;
@@ -998,8 +1021,17 @@
     const adminRoot = document.getElementById('admin-app-root');
     if (adminRoot) {
       adminRoot.style.display = 'none';
+      adminRoot.innerHTML = '';
     }
+    document.body.style.overflow = '';
   };
+
+  // Global Escape key listener to immediately exit portal
+  window.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && (window.location.hash === '#admin' || (window.CMS_STATE && document.getElementById('admin-app-root')?.style.display !== 'none'))) {
+      window.location.hash = '#home';
+    }
+  });
 
   window.addNewBuyerEnquiry = async function (enquiryData, file) {
     let resultId = `ENQ-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;

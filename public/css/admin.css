@@ -4,6 +4,73 @@
    High Readability • Zero Dimness • Human-Designed Management Experience
    ========================================================================== */
 
+#admin-app-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  background: rgba(26, 34, 22, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.admin-login-modal-overlay {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.admin-login-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light, #E0E8DC);
+  border-radius: var(--radius-sm, 8px);
+  padding: 2.75rem 2.25rem;
+  max-width: 460px;
+  width: 100%;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  animation: adminModalFadeIn 0.22s ease-out;
+}
+
+@keyframes adminModalFadeIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.admin-close-modal-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-light, #E0E8DC);
+  background: var(--color-bg, #F4F7F2);
+  color: var(--text-title, #1A2216);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.admin-close-modal-btn:hover {
+  background: var(--royal-burgundy, #3B482E);
+  color: #FFFFFF;
+  border-color: var(--royal-burgundy, #3B482E);
+  transform: rotate(90deg);
+}
+
 .admin-view-wrapper {
   position: fixed;
   top: 0;
