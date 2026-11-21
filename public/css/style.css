@@ -274,55 +274,26 @@ p {
 }
 
 .logo-wrapper {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.9rem;
   text-decoration: none;
   color: var(--text-title);
   flex-shrink: 0;
+  transition: opacity var(--transition-fast);
 }
 
-.logo-mark {
-  width: 42px;
-  height: 42px;
-  background: var(--royal-burgundy);
-  border: 1px solid var(--royal-gold);
-  border-radius: var(--radius-xs);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(92, 19, 36, 0.2);
-}
-
-.logo-mark svg {
-  width: 22px;
-  height: 22px;
-  stroke: #FFFFFF;
-  fill: none;
-}
-
-.logo-text-block {
-  display: flex;
-  flex-direction: column;
+.logo-wrapper:hover {
+  opacity: 0.85;
 }
 
 .brand-name {
   font-family: var(--font-royal);
-  font-size: 1.18rem;
+  font-size: clamp(1.22rem, 1.55vw, 1.42rem);
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-title);
-  line-height: 1.1;
-}
-
-.brand-sub {
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--royal-burgundy);
-  font-weight: 600;
+  line-height: 1;
 }
 
 /* Spacious, Un-congested Luxury Navigation */
