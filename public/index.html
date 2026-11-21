@@ -52,6 +52,9 @@
   }
   </script>
 
+  <!-- Leaflet CSS for Realistic Global Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/motion.css">
@@ -691,43 +694,36 @@
           </div>
 
           <div class="global-map-wrapper reveal-on-scroll">
-            <svg class="svg-trade-map" viewBox="0 0 1000 480" fill="none">
-              <defs>
-                <linearGradient id="routeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#5C1324" stop-opacity="0.9"/>
-                  <stop offset="100%" stop-color="#A37745" stop-opacity="0.6"/>
-                </linearGradient>
-              </defs>
+            <div class="map-toolbar">
+              <div class="map-toolbar-left">
+                <span class="map-badge-live"><span class="live-dot"></span> LIVE MARITIME & AIR CORRIDORS</span>
+                <span class="map-origin-label">DISPATCH HUB: <strong>NHAVA SHEVA (JNPT) & DELHI AIR CARGO (INDIA)</strong></span>
+              </div>
+              <div class="map-toolbar-right">
+                <div class="map-layer-toggles">
+                  <button type="button" class="btn-map-layer active" data-layer="atlas" title="Switch to High-Precision Editorial Atlas">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    Editorial Atlas
+                  </button>
+                  <button type="button" class="btn-map-layer" data-layer="satellite" title="Switch to Photorealistic Satellite Imagery">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    Satellite Realism
+                  </button>
+                </div>
+                <button type="button" class="btn-map-reset" id="btn-map-reset" title="Reset Global View">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                  Reset View
+                </button>
+              </div>
+            </div>
 
-              <path d="M120 120 Q160 90 240 100 T320 140 T260 220 T180 200 Z" fill="#EAE2D5" stroke="rgba(163,119,69,0.3)"/>
-              <path d="M220 260 Q260 250 280 320 T240 420 T180 360 Z" fill="#EAE2D5" stroke="rgba(163,119,69,0.3)"/>
-              <path d="M460 90 Q520 80 560 120 T520 180 T460 140 Z" fill="#EAE2D5" stroke="rgba(163,119,69,0.3)"/>
-              <path d="M470 200 Q560 200 580 280 T540 380 T460 300 Z" fill="#EAE2D5" stroke="rgba(163,119,69,0.3)"/>
-              <path d="M600 100 Q740 70 820 120 T860 240 T720 220 Z" fill="#EAE2D5" stroke="rgba(163,119,69,0.3)"/>
-              <path d="M670 200 Q710 180 730 240 T680 280 T660 240 Z" fill="#5C1324" stroke="#A37745" stroke-width="2"/>
-              <path d="M780 300 Q840 280 880 340 T820 400 T760 340 Z" fill="#EAE2D5" stroke="rgba(163,119,69,0.3)"/>
+            <div id="realistic-trade-map" class="realistic-trade-map"></div>
 
-              <path d="M690 230 Q460 120 240 150" stroke="url(#routeGradient)" stroke-width="2.5" class="trade-route"/>
-              <path d="M690 230 Q580 140 480 110" stroke="url(#routeGradient)" stroke-width="2.5" class="trade-route"/>
-              <path d="M690 230 Q600 160 520 120" stroke="url(#routeGradient)" stroke-width="2.5" class="trade-route"/>
-              <path d="M690 230 Q655 210 620 200" stroke="url(#routeGradient)" stroke-width="2.5" class="trade-route"/>
-
-              <circle cx="690" cy="230" r="7" fill="#5C1324"/>
-              <circle cx="690" cy="230" r="14" stroke="#A37745" stroke-width="1.5" opacity="0.8"/>
-              <text x="690" y="260" fill="#140F0D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" text-anchor="middle">SAHU GLOBAL (INDIA)</text>
-
-              <circle cx="240" cy="150" r="5" fill="#5C1324"/>
-              <text x="240" y="140" fill="#6B5E55" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="600" text-anchor="middle">USA / NEW YORK</text>
-
-              <circle cx="480" cy="110" r="5" fill="#5C1324"/>
-              <text x="480" y="100" fill="#6B5E55" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="600" text-anchor="middle">UK / LONDON</text>
-
-              <circle cx="520" cy="120" r="5" fill="#5C1324"/>
-              <text x="560" y="115" fill="#6B5E55" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="600" text-anchor="middle">EU / ROTTERDAM</text>
-
-              <circle cx="620" cy="200" r="5" fill="#5C1324"/>
-              <text x="620" y="190" fill="#6B5E55" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="600" text-anchor="middle">UAE / DUBAI</text>
-            </svg>
+            <div class="map-legend-bar">
+              <div class="legend-item"><span class="legend-dot origin"></span> Sahu Global Manufacturing & Primary Dispatch Hub (India)</div>
+              <div class="legend-item"><span class="legend-dot dest"></span> Tier-1 International Destination Seaports & Air Terminals</div>
+              <div class="legend-item"><span class="legend-line"></span> Direct Maritime Shipping Corridors (AQL 1.5 Inspected)</div>
+            </div>
           </div>
 
           <div class="global-markets-grid">
@@ -1837,7 +1833,9 @@
   </div>
 
   <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="js/data-default.js"></script>
+  <script src="js/realistic-map.js"></script>
   <script src="js/motion.js"></script>
   <script src="js/cms.js"></script>
   <script src="js/app.js"></script>
