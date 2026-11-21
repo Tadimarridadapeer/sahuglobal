@@ -145,30 +145,34 @@
         s1Sub.style.opacity = 1 - p * 1.1;
       }
 
-      // STAGE 2: MORPH BAND ("ENGINEERED FROM FIBER TO FIT")
+      // STAGE 2: MORPH BAND ("INNOVATION PARADIGM" / "ENGINEERED FROM FIBER TO FIT")
       const stage2 = document.querySelector('.sg-morph-band');
       const marquee = document.querySelector('.sg-morph-marquee');
-      const morphCard = document.querySelector('.sg-morph-card');
 
       if (stage2) {
-        const p = clamp((cur - stage2.offsetTop) / (stage2.offsetHeight - vh));
-        const q = ease(p);
+        const rect = stage2.getBoundingClientRect();
+        const totalDist = stage2.offsetHeight - vh;
+        const rawP = totalDist > 0 ? -rect.top / totalDist : 0;
+        const p = clamp(rawP);
 
         if (marquee) {
-          marquee.style.transform = `translate3d(${-p * 35}vw, -50%, 0)`;
+          marquee.style.transform = `translate3d(${-p * 45}vw, -50%, 0)`;
         }
 
-        document.querySelectorAll('.sg-morph-copy .line').forEach((line, idx) => {
-          const z = clamp(p * 1.6 - idx * 0.2);
-          const lineEase = ease(z);
-          line.style.transform = `translate3d(${(1 - lineEase) * (-60 + idx * 15)}px, ${(1 - lineEase) * (40 - idx * 10)}px, 0)`;
-          line.style.opacity = clamp(z * 1.8);
+        // Stepped text and synchronized card switching across 3 distinct phases
+        const activeIdx = p >= 0.66 ? 2 : (p >= 0.33 ? 1 : 0);
+
+        stage2.querySelectorAll('.morph-step').forEach((el, idx) => {
+          el.classList.toggle('active', idx === activeIdx);
         });
 
-        if (morphCard) {
-          morphCard.style.transform = `scale(${0.94 + q * 0.12})`;
-          morphCard.style.clipPath = `inset(${(1 - q) * 4}% round ${(1 - q) * 16}px)`;
-        }
+        stage2.querySelectorAll('.sg-morph-card').forEach((el, idx) => {
+          el.classList.toggle('active', idx === activeIdx);
+        });
+
+        stage2.querySelectorAll('.morph-progress-step').forEach((el, idx) => {
+          el.classList.toggle('active', idx === activeIdx);
+        });
       }
 
       requestAnimationFrame(scrollRenderLoop);
@@ -612,12 +616,31 @@
     requestAnimationFrame(renderGlobe);
   }
 
+  // INTERACTIVE MORPH PROGRESS TABS
+  function initMorphProgressButtons() {
+    const stage2 = document.querySelector('.sg-morph-band');
+    if (!stage2) return;
+    const progressBtns = stage2.querySelectorAll('.morph-progress-step');
+    progressBtns.forEach((btn, idx) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const vh = window.innerHeight;
+        const totalDist = stage2.offsetHeight - vh;
+        const targetP = idx === 0 ? 0.08 : (idx === 1 ? 0.48 : 0.82);
+        const stageTop = window.scrollY + stage2.getBoundingClientRect().top;
+        const targetScroll = stageTop + (targetP * totalDist);
+        window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+      });
+    });
+  }
+
   // Initialize all on DOM ready
   document.addEventListener('DOMContentLoaded', () => {
     initAdvancedCursor();
     initHeroTilt();
     initMagneticButtons();
     initCinematicScroll();
+    initMorphProgressButtons();
     initScrollReveals();
     initManufacturingJourney();
     initEstimator();
@@ -628,6 +651,7 @@
   window.initMotionModules = function () {
     initScrollReveals();
     initMagneticButtons();
+    initMorphProgressButtons();
     initManufacturingJourney();
     initRotatingEarthGlobe();
   };

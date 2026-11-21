@@ -210,20 +210,21 @@ body.cursor-has-label .cursor-label {
 /* STAGE 02: MORPH BAND & DESIGN INNOVATION */
 .sg-morph-band {
   position: relative;
-  height: 220vh;
+  height: 280vh;
   background: var(--color-bg-alt);
-  overflow: hidden;
   border-bottom: 1px solid var(--border-subtle);
 }
 
 .sg-morph-sticky-wrap {
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: var(--header-height, 80px);
+  height: calc(100vh - var(--header-height, 80px));
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
+  z-index: 5;
 }
 
 .sg-morph-marquee {
@@ -257,44 +258,162 @@ body.cursor-has-label .cursor-label {
   flex-direction: column;
 }
 
-.sg-morph-copy .line {
+/* Stepped Storytelling Transitions */
+.morph-steps-container {
+  display: grid;
+  grid-template-areas: "step";
+  margin-top: 1.25rem;
+  min-height: 240px;
+}
+
+.morph-step {
+  grid-area: step;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(22px);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s;
+  pointer-events: none;
+}
+
+.morph-step.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.morph-step-number {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--royal-burgundy);
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+}
+
+.morph-step-heading {
   font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  font-size: clamp(2rem, 3.2vw, 3.1rem);
   font-weight: 500;
   color: var(--text-title);
   line-height: 1.15;
-  will-change: transform, opacity;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.015em;
 }
 
-.sg-morph-copy .line.highlight {
-  color: var(--royal-burgundy);
-  font-style: italic;
-  font-weight: 400;
-}
-
-.sg-morph-details {
-  margin-top: 2rem;
-  font-size: 1.1rem;
+.morph-step-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.15vw, 1.12rem);
   color: var(--text-body);
-  max-width: 520px;
-  line-height: 1.75;
+  line-height: 1.8;
+  max-width: 560px;
+  margin: 0;
+}
+
+.morph-progress-bar {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+.morph-progress-step {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs, 2px);
+  padding: 0.55rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.morph-progress-step span {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: var(--royal-burgundy);
+  opacity: 0.75;
+}
+
+.morph-progress-step:hover {
+  border-color: var(--border-strong);
+  color: var(--text-title);
+}
+
+.morph-progress-step.active {
+  background: var(--royal-burgundy);
+  border-color: var(--royal-burgundy);
+  color: #FFFFFF;
+}
+
+.morph-progress-step.active span {
+  color: #FFFFFF;
+  opacity: 0.95;
+}
+
+/* Synchronized Card Visuals Stack */
+.sg-morph-card-wrap {
+  position: relative;
+  display: grid;
+  grid-template-areas: "card";
+  width: 100%;
+  max-width: 480px;
+  margin-left: auto;
+  aspect-ratio: 4 / 5;
 }
 
 .sg-morph-card {
+  grid-area: card;
   position: relative;
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-sm);
   overflow: hidden;
-  aspect-ratio: 4 / 5;
   border: 1px solid var(--border-strong);
-  will-change: transform, clip-path;
   background: var(--color-surface);
   box-shadow: var(--shadow-warm-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.95) translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
+  pointer-events: none;
+}
+
+.sg-morph-card.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
 }
 
 .sg-morph-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+.morph-card-badge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  background: rgba(20, 15, 13, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 0.85rem;
+  border-radius: 2px;
+  border-left: 2px solid var(--royal-gold-bright, #D4AF37);
 }
 
 /* STAGE 03: ORBITAL GLOBAL PRESENCE */
@@ -453,9 +572,18 @@ body.cursor-has-label .cursor-label {
   }
   .sg-morph-grid {
     grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
   }
   .sg-morph-marquee {
     display: none !important;
+  }
+  .sg-morph-card-wrap {
+    margin: 1.5rem auto 0 !important;
+    max-width: 100% !important;
+    aspect-ratio: 16 / 11 !important;
+  }
+  .morph-steps-container {
+    min-height: auto !important;
   }
 }
 
@@ -470,8 +598,10 @@ body.cursor-has-label .cursor-label {
     animation: none !important;
   }
   .sg-scroll-bg-image, .sg-scroll-title, .sg-scroll-sub,
-  .sg-morph-card, .sg-morph-copy .line {
+  .sg-morph-card, .morph-step {
     transform: none !important;
     clip-path: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 }
