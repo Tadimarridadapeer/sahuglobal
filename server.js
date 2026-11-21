@@ -13,15 +13,19 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Directories
-const DATA_DIR = path.join(__dirname, 'data');
-const UPLOAD_DIR = path.join(__dirname, 'public', 'uploads');
+const DATA_DIR = process.env.VERCEL ? path.join('/tmp', 'data') : path.join(__dirname, 'data');
+const UPLOAD_DIR = process.env.VERCEL ? path.join('/tmp', 'uploads') : path.join(__dirname, 'public', 'uploads');
 const CONTENT_FILE = path.join(DATA_DIR, 'content.json');
 const ENQUIRIES_FILE = path.join(DATA_DIR, 'enquiries.json');
 const SEO_FILE = path.join(DATA_DIR, 'seo.json');
 
 // Ensure directories exist
-if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
-if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+try {
+  if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
+  if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+} catch (e) {
+  console.warn('Directory check warning:', e.message);
+}
 
 // Multer Storage Configuration
 const storage = multer.diskStorage({
@@ -54,6 +58,12 @@ function readJson(filePath, defaultData = {}) {
   try {
     if (fs.existsSync(filePath)) {
       const data = fs.readFileSync(filePath, 'utf-8');
+      return JSON.parse(data);
+    }
+    // Fallback to bundled data directory
+    const bundledPath = path.join(__dirname, 'data', path.basename(filePath));
+    if (fs.existsSync(bundledPath)) {
+      const data = fs.readFileSync(bundledPath, 'utf-8');
       return JSON.parse(data);
     }
   } catch (err) {
@@ -269,15 +279,25 @@ app.get('/robots.txt', (req, res) => {
 
 // SPA Fallback: Any unknown route serves index.html
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  const primary = path.join(__dirname, 'public', 'index.html');
+  const fallback = path.join(__dirname, 'index.html');
+  if (fs.existsSync(primary)) {
+    res.sendFile(primary);
+  } else {
+    res.sendFile(fallback);
+  }
 });
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`\n======================================================`);
-  console.log(`  SAHU GLOBAL CORPORATE WEBSITE & CMS`);
-  console.log(`  Running at: http://localhost:${PORT}`);
-  console.log(`  Admin CMS:  http://localhost:${PORT}/#admin`);
-  console.log(`  Built for CrossMotive Services Client Demonstration`);
-  console.log(`======================================================\n`);
-});
+// Start Server when run directly
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`\n======================================================`);
+    console.log(`  SAHU GLOBAL CORPORATE WEBSITE & CMS`);
+    console.log(`  Running at: http://localhost:${PORT}`);
+    console.log(`  Admin CMS:  http://localhost:${PORT}/#admin`);
+    console.log(`  Built for CrossMotive Services Client Demonstration`);
+    console.log(`======================================================\n`);
+  });
+}
+
+module.exports = app;

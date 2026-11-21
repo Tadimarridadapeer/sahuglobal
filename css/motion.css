@@ -1,0 +1,610 @@
+/* ==========================================================================
+   SAHU GLOBAL PRIVATE LIMITED — BESPOKE MOTION & INTERACTION SYSTEM
+   Human-Designed Luxury Experience • Clean Physics • Zero Blurry Blobs & Lines
+   Bright Royal Palette • Imperial Burgundy & Cognac Gold
+   ========================================================================== */
+
+/* 1. Bespoke Custom Cursor (Pure Minimalist Luxury) */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--royal-burgundy);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease, background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(92, 19, 36, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background-color 0.25s ease;
+  will-change: transform, width, height;
+}
+
+.cursor-label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10001;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: var(--royal-burgundy);
+  text-transform: uppercase;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Cursor Interactive States */
+body.cursor-hover .cursor-ring {
+  width: 64px;
+  height: 64px;
+  border-color: var(--royal-burgundy);
+  background-color: rgba(92, 19, 36, 0.06);
+}
+
+body.cursor-hover .cursor-dot {
+  background-color: var(--royal-burgundy-light);
+  transform: translate(-50%, -50%) scale(1.3);
+}
+
+body.cursor-has-label .cursor-ring {
+  width: 84px;
+  height: 84px;
+  background-color: #FFFFFF;
+  border-color: var(--royal-burgundy);
+  box-shadow: 0 4px 20px rgba(92, 19, 36, 0.15);
+}
+
+body.cursor-has-label .cursor-dot {
+  opacity: 0;
+}
+
+body.cursor-has-label .cursor-label {
+  opacity: 1;
+}
+
+/* 2. Editorial Horizontal Ticker */
+.ticker-strip {
+  width: 100%;
+  background: var(--dark-section-bg);
+  border-top: 1px solid rgba(163, 119, 69, 0.3);
+  border-bottom: 1px solid rgba(163, 119, 69, 0.3);
+  padding: 1.15rem 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.ticker-track {
+  display: flex;
+  white-space: nowrap;
+  width: max-content;
+  animation: tickerSlide 40s linear infinite;
+  will-change: transform;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #E6DFD4;
+  padding: 0 1.5rem;
+}
+
+.ticker-symbol {
+  color: var(--royal-gold-bright);
+  margin-left: 1.5rem;
+  font-size: 0.85rem;
+}
+
+@keyframes tickerSlide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   3. SCROLL STORYTELLING STAGES
+   ========================================================================== */
+
+/* STAGE 01: CINEMATIC ESSAY */
+.sg-scroll-stage {
+  position: relative;
+  height: 220vh;
+  background: var(--dark-section-bg);
+}
+
+.sg-scroll-sticky-wrap {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sg-scroll-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform, clip-path;
+  transform-origin: center center;
+}
+
+.sg-scroll-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 15, 13, 0.82);
+  z-index: 2;
+}
+
+.sg-scroll-center-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 1050px;
+  padding: 0 2rem;
+}
+
+.sg-scroll-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 6.2rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  line-height: 1.05;
+  margin-bottom: 1.75rem;
+  will-change: transform, opacity;
+}
+
+.sg-scroll-title span.accent-italic {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--royal-gold-bright);
+}
+
+.sg-scroll-sub {
+  font-family: var(--font-sans);
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+  color: #E6DFD4;
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.7;
+  will-change: transform, opacity;
+}
+
+/* STAGE 02: MORPH BAND & DESIGN INNOVATION */
+.sg-morph-band {
+  position: relative;
+  padding: clamp(5rem, 8vh, 7.5rem) 0;
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.sg-morph-sticky-wrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.sg-morph-marquee {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  white-space: nowrap;
+  font-family: var(--font-royal);
+  font-size: clamp(4rem, 8.5vw, 7rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(92, 19, 36, 0.035);
+  pointer-events: none;
+  transform: translateY(-50%);
+  animation: marqueeContinuous 38s linear infinite;
+  z-index: 1;
+}
+
+@keyframes marqueeContinuous {
+  0% { transform: translate3d(0, -50%, 0); }
+  100% { transform: translate3d(-50%, -50%, 0); }
+}
+
+.sg-morph-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4.5rem;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.sg-morph-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Stepped Storytelling Transitions */
+.morph-steps-container {
+  display: grid;
+  grid-template-areas: "step";
+  margin-top: 1.25rem;
+  min-height: 240px;
+}
+
+.morph-step {
+  grid-area: step;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(22px);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s;
+  pointer-events: none;
+}
+
+.morph-step.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.morph-step-number {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--royal-burgundy);
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+}
+
+.morph-step-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.2vw, 3.1rem);
+  font-weight: 500;
+  color: var(--text-title);
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.015em;
+}
+
+.morph-step-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.15vw, 1.12rem);
+  color: var(--text-body);
+  line-height: 1.8;
+  max-width: 560px;
+  margin: 0;
+}
+
+.morph-progress-bar {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+.morph-progress-step {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs, 2px);
+  padding: 0.55rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.morph-progress-step span {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: var(--royal-burgundy);
+  opacity: 0.75;
+}
+
+.morph-progress-step:hover {
+  border-color: var(--border-strong);
+  color: var(--text-title);
+}
+
+.morph-progress-step.active {
+  background: var(--royal-burgundy);
+  border-color: var(--royal-burgundy);
+  color: #FFFFFF;
+}
+
+.morph-progress-step.active span {
+  color: #FFFFFF;
+  opacity: 0.95;
+}
+
+/* Synchronized Card Visuals Stack */
+.sg-morph-card-wrap {
+  position: relative;
+  display: grid;
+  grid-template-areas: "card";
+  width: 100%;
+  max-width: 480px;
+  margin-left: auto;
+  aspect-ratio: 4 / 5;
+}
+
+.sg-morph-card {
+  grid-area: card;
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-warm-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.95) translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
+  pointer-events: none;
+}
+
+.sg-morph-card.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.sg-morph-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.morph-card-badge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  background: rgba(20, 15, 13, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 0.85rem;
+  border-radius: 2px;
+  border-left: 2px solid var(--royal-gold-bright, #D4AF37);
+}
+
+/* STAGE 03: ORBITAL GLOBAL PRESENCE */
+.sg-orbital-stage {
+  position: relative;
+  height: 220vh;
+  background: var(--dark-section-bg);
+  overflow: hidden;
+}
+
+.sg-orbital-sticky-wrap {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sg-orbital-container {
+  position: relative;
+  width: clamp(340px, 60vw, 820px);
+  height: clamp(340px, 60vw, 820px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orbital-ring {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+.orbital-ring-1 {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed rgba(163, 119, 69, 0.4);
+  animation: spinClockwise 90s linear infinite;
+}
+
+.orbital-ring-2 {
+  width: 75%;
+  height: 75%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: spinCounterClockwise 65s linear infinite;
+}
+
+.orbital-ring-3 {
+  width: 50%;
+  height: 50%;
+  border: 1px solid var(--royal-burgundy);
+}
+
+.orbital-node {
+  position: absolute;
+  padding: 0.45rem 0.95rem;
+  background: #241C1A;
+  border: 1px solid rgba(163, 119, 69, 0.5);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #FAF8F5;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.orbital-node::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--royal-gold-bright);
+}
+
+.node-ny { top: 12%; left: 15%; }
+.node-ldn { top: 8%; right: 20%; }
+.node-rdm { bottom: 15%; right: 18%; }
+.node-dxb { bottom: 18%; left: 22%; }
+
+.sg-orbital-center {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 0 2rem;
+  max-width: 660px;
+}
+
+.sg-orbital-center h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4.8vw, 4.4rem);
+  font-weight: 500;
+  color: #FFFFFF;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+  will-change: transform;
+}
+
+.sg-orbital-center h2 span.accent {
+  color: var(--royal-gold-bright);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.sg-orbital-center p {
+  font-size: 1.05rem;
+  color: #D9CFC4;
+  line-height: 1.7;
+}
+
+@keyframes spinClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinCounterClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+/* 4. Hero Perspective Image Tilt */
+.hero-perspective-wrap {
+  perspective: 1200px;
+}
+
+.hero-tilt-target {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+/* 5. Mobile & Reduced Motion Overrides */
+@media (pointer: coarse), (max-width: 960px) {
+  .cursor-dot, .cursor-ring, .cursor-label {
+    display: none !important;
+  }
+  .sg-scroll-stage, .sg-morph-band, .sg-orbital-stage {
+    height: auto !important;
+  }
+  .sg-scroll-sticky-wrap, .sg-morph-sticky-wrap, .sg-orbital-sticky-wrap {
+    position: relative !important;
+    height: auto !important;
+    padding: 6rem 1.5rem !important;
+  }
+  .sg-scroll-bg-image {
+    position: relative !important;
+    height: 380px !important;
+    margin-bottom: 2rem !important;
+    clip-path: none !important;
+    transform: none !important;
+  }
+  .sg-morph-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+  .sg-morph-marquee {
+    display: none !important;
+  }
+  .sg-morph-card-wrap {
+    margin: 1.5rem auto 0 !important;
+    max-width: 100% !important;
+    aspect-ratio: 16 / 11 !important;
+  }
+  .morph-steps-container {
+    min-height: auto !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot, .cursor-ring, .cursor-label {
+    display: none !important;
+  }
+  .ticker-track {
+    animation: none !important;
+  }
+  .orbital-ring-1, .orbital-ring-2 {
+    animation: none !important;
+  }
+  .sg-scroll-bg-image, .sg-scroll-title, .sg-scroll-sub,
+  .sg-morph-card, .morph-step {
+    transform: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
