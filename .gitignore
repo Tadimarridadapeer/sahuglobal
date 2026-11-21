@@ -1,0 +1,7 @@
+node_modules/
+.env
+.DS_Store
+*.log
+brief_extracted.txt
+quotation_extracted.txt
+scripts_generate_content.js

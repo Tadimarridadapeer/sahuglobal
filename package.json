@@ -1,0 +1,26 @@
+{
+  "name": "sahu-global-corporate-website",
+  "version": "1.0.0",
+  "description": "Sahu Global Private Limited — Premium Corporate Website & Custom CMS",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "keywords": [
+    "apparel",
+    "manufacturing",
+    "export",
+    "b2b",
+    "sahu-global",
+    "cms",
+    "corporate-website"
+  ],
+  "author": "CrossMotive Services",
+  "license": "ISC"
+}

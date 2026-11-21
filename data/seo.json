@@ -1,0 +1,149 @@
+{
+  "siteUrl": "https://www.sahuglobal.com",
+  "pages": {
+    "home": {
+      "title": "Sahu Global Private Limited | Premier Indian Apparel Manufacturer & Exporter",
+      "description": "Established in 1979, Sahu Global provides engineered apparel manufacturing, 3D CAD sampling, and high-volume exports for international fashion brands in USA and Europe.",
+      "keywords": "apparel manufacturer India, garment exporter India, apparel manufacturing partner, B2B garment export, Sahu Global",
+      "canonical": "https://www.sahuglobal.com/",
+      "ogType": "website"
+    },
+    "about": {
+      "title": "Heritage & Legacy Since 1979 | Sahu Global Private Limited",
+      "description": "Learn about Sahu Global's four-decade legacy of precision garment manufacturing, global compliance, and ethical craftsmanship founded in 1979.",
+      "keywords": "Sahu Global history, apparel manufacturer 1979, Indian garment export legacy, ethical garment manufacturing",
+      "canonical": "https://www.sahuglobal.com/about",
+      "ogType": "article"
+    },
+    "global-presence": {
+      "title": "Global Presence & Export Network | Sahu Global",
+      "description": "Serving fashion capitals across North America, the UK, Europe, and the Middle East with seamless multimodal port logistics and trade compliance.",
+      "keywords": "apparel export destinations, fashion supply chain USA Europe, international garment shipment",
+      "canonical": "https://www.sahuglobal.com/global-presence",
+      "ogType": "website"
+    },
+    "capabilities": {
+      "title": "Apparel Manufacturing Capabilities & Infrastructure | Sahu Global",
+      "description": "Explore Sahu Global's end-to-end manufacturing footprint: automated CNC cutting, modular sewing lines, 3D CAD design, and in-house testing labs.",
+      "keywords": "garment manufacturing capabilities, CNC fabric cutting, modular sewing lines, apparel factory India",
+      "canonical": "https://www.sahuglobal.com/capabilities",
+      "ogType": "website"
+    },
+    "facilities": {
+      "title": "Advanced Manufacturing Facilities & Machinery | Sahu Global",
+      "description": "State-of-the-art facilities featuring automated spreading, computerized Juki/Brother sewing lines, in-house physical testing, and steam finishing.",
+      "keywords": "garment factory machinery, automated apparel manufacturing, textile testing lab India",
+      "canonical": "https://www.sahuglobal.com/facilities",
+      "ogType": "website"
+    },
+    "product-development": {
+      "title": "Product Development & 3D Virtual Prototyping | Sahu Global",
+      "description": "Accelerate fashion sample cycles with Clo3D digital avatar fitting, technical tech-pack engineering, and an archive of 1,500+ curated fabrics.",
+      "keywords": "3D garment prototyping, Clo3D sampling India, tech pack engineering, fabric sourcing India",
+      "canonical": "https://www.sahuglobal.com/product-development",
+      "ogType": "website"
+    },
+    "quality-compliance": {
+      "title": "Quality Assurance & AQL Standards | Sahu Global",
+      "description": "Uncompromising quality through 4-point fabric grading, in-line statistical process audits, conveyor needle detection, and AQL 1.5/2.5 pre-shipment clearance.",
+      "keywords": "AQL 1.5 garment inspection, 4-point fabric inspection, garment quality control India, needle detection",
+      "canonical": "https://www.sahuglobal.com/quality-compliance",
+      "ogType": "website"
+    },
+    "design-innovation": {
+      "title": "Design & Textile Innovation | Sahu Global",
+      "description": "Forward-looking fabric developments, ozone water-saving washing, eco-finishing, and functional performance blends for contemporary apparel.",
+      "keywords": "sustainable textile finishing, ozone washing, functional fabric finishes, garment innovation",
+      "canonical": "https://www.sahuglobal.com/design-innovation",
+      "ogType": "website"
+    },
+    "products": {
+      "title": "Apparel Categories & Collections | Sahu Global",
+      "description": "Explore our manufacturing capabilities across Women's Apparel, Men's Tailoring, Kidswear & Essentials, and Performance Activewear.",
+      "keywords": "apparel collections manufacturer, womenswear manufacturer, menswear exporter, kidswear factory",
+      "canonical": "https://www.sahuglobal.com/products",
+      "ogType": "website"
+    },
+    "category-womenswear": {
+      "title": "Women's Apparel Manufacturing & Export | Sahu Global",
+      "description": "Expert manufacturing of women's tailored blazers, woven dresses, blouses, and linen separates with fine seam finishing and fast sampling.",
+      "keywords": "womenswear manufacturer India, dress manufacturer, linen clothing exporter, women fashion supplier",
+      "canonical": "https://www.sahuglobal.com/products/womenswear",
+      "ogType": "product"
+    },
+    "category-menswear": {
+      "title": "Men's Apparel & Tailored Shirts Manufacturing | Sahu Global",
+      "description": "Precision manufacturing of formal dress shirts, garment-dyed utility overshirts, tailored chinos, and fine gauge knit polos.",
+      "keywords": "menswear manufacturer India, dress shirt manufacturer, chino trousers exporter, knit polo supplier",
+      "canonical": "https://www.sahuglobal.com/products/menswear",
+      "ogType": "product"
+    },
+    "category-kidswear": {
+      "title": "Kidswear & Baby Essentials Manufacturing | Sahu Global",
+      "description": "Skin-safe, certified organic cotton babywear, schoolwear basics, and playwear manufactured under strict child safety and non-toxic dye standards.",
+      "keywords": "kidswear manufacturer India, organic baby clothing exporter, children wear factory GOTS",
+      "canonical": "https://www.sahuglobal.com/products/kidswear",
+      "ogType": "product"
+    },
+    "category-activewear": {
+      "title": "Performance & Activewear Manufacturing | Sahu Global",
+      "description": "Technical athletic apparel featuring 4-way stretch fabrics, flatlock stitching, zoned moisture-wicking, and seamless compression construction.",
+      "keywords": "activewear manufacturer India, athleisure clothing exporter, seamless leggings manufacturer",
+      "canonical": "https://www.sahuglobal.com/products/activewear",
+      "ogType": "product"
+    },
+    "sustainability": {
+      "title": "Sustainability & Environmental Stewardship | Sahu Global",
+      "description": "Our roadmap to zero-impact manufacturing: effluent water recycling, rooftop solar energy, organic cotton certifications, and circular textile waste.",
+      "keywords": "sustainable garment manufacturer, eco friendly apparel factory India, ETP water recycling, GOTS organic",
+      "canonical": "https://www.sahuglobal.com/sustainability",
+      "ogType": "website"
+    },
+    "certifications": {
+      "title": "Certifications & Global Audit Frameworks | Sahu Global",
+      "description": "Compliance readiness and alignments with OEKO-TEX Standard 100, GOTS, SMETA/Sedex 4-Pillar, and amfori BSCI social accountability.",
+      "keywords": "OEKO-TEX garment manufacturer, GOTS certified factory India, Sedex audited apparel supplier",
+      "canonical": "https://www.sahuglobal.com/certifications",
+      "ogType": "website"
+    },
+    "insights": {
+      "title": "Industry Insights & Sourcing Intelligence | Sahu Global",
+      "description": "Expert perspectives on European sourcing shifts, AQL quality benchmarks, and the 3D virtual prototyping revolution in global fashion.",
+      "keywords": "apparel sourcing insights, fashion supply chain analysis, garment export trends",
+      "canonical": "https://www.sahuglobal.com/insights",
+      "ogType": "blog"
+    },
+    "careers": {
+      "title": "Careers & Opportunities | Sahu Global Private Limited",
+      "description": "Build a rewarding career in global apparel engineering, garment merchandising, CAD pattern design, and quality assurance.",
+      "keywords": "apparel industry jobs Delhi NCR, garment merchandiser careers, CAD pattern master vacancy",
+      "canonical": "https://www.sahuglobal.com/careers",
+      "ogType": "website"
+    },
+    "contact": {
+      "title": "Buyer Enquiry & Sourcing Consultation | Sahu Global",
+      "description": "Initiate a production enquiry, request sample feasibility, and connect directly with our international merchandising directors.",
+      "keywords": "contact Sahu Global, apparel quotation request, garment manufacturing enquiry, B2B sourcing RFQ",
+      "canonical": "https://www.sahuglobal.com/contact",
+      "ogType": "website"
+    },
+    "privacy": {
+      "title": "Privacy Policy | Sahu Global Private Limited",
+      "description": "Privacy policy and data governance practices of Sahu Global Private Limited regarding buyer data, enquiry details, and digital compliance.",
+      "canonical": "https://www.sahuglobal.com/privacy-policy",
+      "ogType": "website"
+    },
+    "terms": {
+      "title": "Terms of Business | Sahu Global Private Limited",
+      "description": "Commercial terms of business, manufacturing quotation validity, intellectual property, and sampling agreements.",
+      "canonical": "https://www.sahuglobal.com/terms",
+      "ogType": "website"
+    },
+    "cookies": {
+      "title": "Cookie Notice | Sahu Global Private Limited",
+      "description": "Information on how Sahu Global utilizes essential and analytical cookies to improve visitor navigation and performance.",
+      "canonical": "https://www.sahuglobal.com/cookie-notice",
+      "ogType": "website"
+    }
+  }
+}

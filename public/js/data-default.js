@@ -1,0 +1,949 @@
+window.DEFAULT_CONTENT = {
+  "company": {
+    "name": "Sahu Global Private Limited",
+    "legalName": "Sahu Global Private Limited",
+    "foundedYear": 1979,
+    "headquarters": "India",
+    "tagline": "Precision Apparel Manufacturing & Global Export Engineering",
+    "shortBio": "Established in 1979, Sahu Global is a premier Indian apparel manufacturer and export house serving international fashion houses and retailers across North America and Europe.",
+    "phone": "+91 11 4987 6500",
+    "email": "contact@sahuglobal.com",
+    "procurementEmail": "procurement@sahuglobal.com",
+    "address": "Plot 42, Industrial Development Area, Phase II, New Delhi NCR, India (Demonstration Address)",
+    "workingHours": "Monday \u2013 Friday: 09:00 AM \u2013 06:30 PM IST",
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/company/sahu-global",
+      "twitter": "https://twitter.com/sahuglobal",
+      "instagram": "https://instagram.com/sahuglobal"
+    }
+  },
+  "navigation": [
+    {
+      "id": "home",
+      "label": "Home",
+      "href": "#home"
+    },
+    {
+      "id": "company",
+      "label": "Company",
+      "href": "#about",
+      "children": [
+        {
+          "id": "about",
+          "label": "Heritage & Legacy",
+          "href": "#about"
+        },
+        {
+          "id": "global-presence",
+          "label": "Global Presence",
+          "href": "#global-presence"
+        }
+      ]
+    },
+    {
+      "id": "capabilities",
+      "label": "Capabilities",
+      "href": "#capabilities",
+      "children": [
+        {
+          "id": "capabilities-overview",
+          "label": "Manufacturing Overview",
+          "href": "#capabilities"
+        },
+        {
+          "id": "facilities",
+          "label": "Advanced Facilities",
+          "href": "#facilities"
+        },
+        {
+          "id": "product-development",
+          "label": "Product Development",
+          "href": "#product-development"
+        },
+        {
+          "id": "quality-compliance",
+          "label": "Quality & Compliance",
+          "href": "#quality-compliance"
+        },
+        {
+          "id": "design-innovation",
+          "label": "Design & Innovation",
+          "href": "#design-innovation"
+        }
+      ]
+    },
+    {
+      "id": "products",
+      "label": "Apparel Categories",
+      "href": "#products",
+      "children": [
+        {
+          "id": "category-womenswear",
+          "label": "Women's Collection",
+          "href": "#category-womenswear"
+        },
+        {
+          "id": "category-menswear",
+          "label": "Men's Tailoring & Casual",
+          "href": "#category-menswear"
+        },
+        {
+          "id": "category-kidswear",
+          "label": "Kidswear & Essentials",
+          "href": "#category-kidswear"
+        },
+        {
+          "id": "category-activewear",
+          "label": "Performance & Activewear",
+          "href": "#category-activewear"
+        }
+      ]
+    },
+    {
+      "id": "sustainability",
+      "label": "Sustainability",
+      "href": "#sustainability"
+    },
+    {
+      "id": "certifications",
+      "label": "Certifications",
+      "href": "#certifications"
+    },
+    {
+      "id": "insights",
+      "label": "Insights",
+      "href": "#insights"
+    },
+    {
+      "id": "careers",
+      "label": "Careers",
+      "href": "#careers"
+    },
+    {
+      "id": "contact",
+      "label": "Buyer Enquiry",
+      "href": "#contact",
+      "isCTA": true
+    }
+  ],
+  "home": {
+    "hero": {
+      "eyebrow": "ESTABLISHED 1979 \u2022 INDIAN APPAREL MANUFACTURING & EXPORT",
+      "headline": "Engineered Apparel Manufacturing<br>for <span class=\"accent-word\">Global Fashion Brands</span>",
+      "subheadline": "Blending four decades of manufacturing heritage with cutting-edge CAD prototyping, lean assembly, and uncompromising AQL standards for international fashion procurement teams.",
+      "primaryCTA": "Initiate Buyer Enquiry",
+      "primaryCTALink": "#contact",
+      "secondaryCTA": "Explore Capabilities",
+      "secondaryCTALink": "#capabilities",
+      "heroImage": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=80",
+      "accentImage": "https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?auto=format&fit=crop&w=800&q=80"
+    },
+    "stats": [
+      {
+        "value": "1979",
+        "label": "Year Founded",
+        "description": "Over four decades of export reliability"
+      },
+      {
+        "value": "45+",
+        "label": "Years of Experience",
+        "description": "Serving prestigious international fashion markets"
+      },
+      {
+        "value": "100%",
+        "label": "Export Grade",
+        "description": "Strictly adhering to AQL 1.5/2.5 inspection benchmarks"
+      },
+      {
+        "value": "End-to-End",
+        "label": "Vertical Integration",
+        "description": "From fiber sourcing & CAD to final port dispatch"
+      }
+    ],
+    "journey": {
+      "eyebrow": "PRECISION EXECUTION WORKFLOW",
+      "title": "The Manufacturing Journey",
+      "subtitle": "A transparent, milestone-driven production pipeline engineered to satisfy stringent European and American buyer requirements.",
+      "steps": [
+        {
+          "num": "01",
+          "phase": "Concept & Prototyping",
+          "title": "Product Development & 3D CAD Sampling",
+          "desc": "Digitized pattern grading, 3D virtual garment draping with Clo3D, and rapid physical fit sampling to reduce lead times by 40%.",
+          "leadTime": "3\u20137 Business Days",
+          "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80",
+          "specs": [
+            "3D Virtual Fit Simulation",
+            "Digital Pattern Grading",
+            "Fabric Shrinkage Pre-testing"
+          ]
+        },
+        {
+          "num": "02",
+          "phase": "Material Engineering",
+          "title": "Ethical Fabric & Trim Procurement",
+          "desc": "Direct mill relationships across certified organic cotton, recycled polyester, European flax, and custom dye-to-match trims.",
+          "leadTime": "Direct Mill Sourcing",
+          "image": "https://images.unsplash.com/photo-1528458876861-544fd1761a91?auto=format&fit=crop&w=800&q=80",
+          "specs": [
+            "GOTS Organic Certification",
+            "OEKO-TEX Standard 100",
+            "Custom Lab-Dip Spectrophotometry"
+          ]
+        },
+        {
+          "num": "03",
+          "phase": "Automated Cutting & Assembly",
+          "title": "High-Precision Lean Production",
+          "desc": "Computerized tensionless fabric spreading, automatic CNC laser cutting tables, and modular modular sewing lines with digital defect tracking.",
+          "leadTime": "High Volume Scalability",
+          "image": "https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?auto=format&fit=crop&w=800&q=80",
+          "specs": [
+            "CNC Automated Spreading",
+            "Unit Production Systems (UPS)",
+            "In-line Operator Quality Audits"
+          ]
+        },
+        {
+          "num": "04",
+          "phase": "Testing & Compliance",
+          "title": "Comprehensive Multi-Stage Quality & AQL Audits",
+          "desc": "Rigorous 4-Point fabric inspection, in-house tensile & wash durability testing, needle detection, and final pre-shipment AQL 1.5/2.5 clearance.",
+          "leadTime": "Zero-Defect Protocol",
+          "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+          "specs": [
+            "AQL 1.5/2.5 Final Gate",
+            "Conveyor Needle Detection",
+            "Color Fastness & Tear Strength Labs"
+          ]
+        },
+        {
+          "num": "05",
+          "phase": "Global Logistics",
+          "title": "Finishing, Packaging & International Port Dispatch",
+          "desc": "Steam tunnel finishing, RFID buyer-ready barcoding, eco-friendly cartons, and multimodal freight coordination to European & US hub ports.",
+          "leadTime": "On-Time Port Dispatch",
+          "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+          "specs": [
+            "Buyer EDI Integration",
+            "Customs Export Documentation",
+            "FOB / CIF Freight Alignment"
+          ]
+        }
+      ]
+    },
+    "capabilitiesTeaser": {
+      "eyebrow": "MANUFACTURING CAPABILITIES",
+      "title": "Engineered for Versatility, Built for Scale",
+      "subtitle": "Our manufacturing footprint provides global fashion brands with the capacity, agility, and technical rigor required for fast-paced seasonal cycles.",
+      "items": [
+        {
+          "title": "Wovens & Tailoring",
+          "desc": "Structured formalwear, casual button-downs, utility jackets, and tailored trousers with exacting seam tolerances.",
+          "icon": "scissors",
+          "link": "#category-menswear"
+        },
+        {
+          "title": "Dresses & Fine Wovens",
+          "desc": "Contemporary women's fashion, fluid dresses, intricate embroideries, and delicate seam construction.",
+          "icon": "layers",
+          "link": "#category-womenswear"
+        },
+        {
+          "title": "Performance & Knitwear",
+          "desc": "Modern stretch fabrics, moisture-wicking jersey, seamless athleisure, and comfortable loungewear.",
+          "icon": "activity",
+          "link": "#category-activewear"
+        },
+        {
+          "title": "Sustainable & Organic Apparel",
+          "desc": "GOTS-compliant organic cottons, linen blends, and eco-friendly dye processes built for ESG conscious labels.",
+          "icon": "feather",
+          "link": "#sustainability"
+        }
+      ]
+    },
+    "globalSection": {
+      "eyebrow": "INTERNATIONAL REACH",
+      "title": "Connecting Indian Craftsmanship to Global Fashion Capitals",
+      "subtitle": "Operating as a trusted manufacturing partner for brands across North America, the United Kingdom, and the European Union.",
+      "markets": [
+        {
+          "region": "North America",
+          "countries": "USA & Canada",
+          "desc": "Longstanding buyer partnerships with major retail and contemporary apparel brands.",
+          "leadTime": "Sea: 22-28 days | Air: 3-5 days"
+        },
+        {
+          "region": "European Union",
+          "countries": "Germany, France, Netherlands, Spain",
+          "desc": "Strict adherence to REACH chemical regulations and European ESG supply chain mandates.",
+          "leadTime": "Sea: 18-24 days | Air: 3-4 days"
+        },
+        {
+          "region": "United Kingdom",
+          "countries": "London & Nationwide Retailers",
+          "desc": "High-street and premium independent fashion houses requiring agile seasonal turnarounds.",
+          "leadTime": "Sea: 20-25 days | Air: 3-4 days"
+        },
+        {
+          "region": "Middle East",
+          "countries": "UAE & GCC Countries",
+          "desc": "Fast-track delivery for regional fashion retail groups and hospitality uniform collections.",
+          "leadTime": "Sea: 5-8 days | Air: 1-2 days"
+        }
+      ]
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "OUR HERITAGE \u2022 SINCE 1979",
+      "headline": "Four Decades of Manufacturing Integrity",
+      "lead": "Founded in 1979, Sahu Global Private Limited has grown from an artisanal textile exporter into a modern, technologically advanced garment manufacturing enterprise serving leading fashion brands across the globe."
+    },
+    "story": {
+      "title": "The Sahu Global Legacy",
+      "paragraphs": [
+        "In 1979, Sahu Global was established with a singular conviction: that Indian textile heritage could be united with international manufacturing precision. Over four decades, that vision has evolved through successive waves of industrial automation, strict global compliance frameworks, and digital supply chain integration.",
+        "Today, Sahu Global stands as a reliable, fully compliant apparel export partner. We do not simply fulfill cut-and-sew contracts; we act as a collaborative product development and production partner for sourcing heads who demand high fidelity, predictable deliveries, and complete social accountability.",
+        "From raw fiber evaluation and CAD 3D virtual sampling to lean sewing floors and AQL final audits, our operations reflect four decades of continuous refinement."
+      ]
+    },
+    "values": [
+      {
+        "title": "Industrial Precision",
+        "desc": "Strict adherence to technical specifications, standardized measurement tolerances, and repeatable quality."
+      },
+      {
+        "title": "Global Compliance",
+        "desc": "Zero tolerance for non-compliance. Ethical labor standards, fair wages, safe workspaces, and environmentally sound chemistry."
+      },
+      {
+        "title": "Collaborative Partnership",
+        "desc": "Transparent communication, proactive risk mitigation, and dedicated account management for international procurement teams."
+      },
+      {
+        "title": "Sustainable Innovation",
+        "desc": "Investing in water recycling, renewable energy, circular fabrics, and low-impact garment washing technologies."
+      }
+    ],
+    "timeline": [
+      {
+        "year": "1979",
+        "title": "Foundation in India",
+        "desc": "Inauguration of export operations focusing on natural fiber garments."
+      },
+      {
+        "year": "1992",
+        "title": "European Market Expansion",
+        "desc": "Initiated long-term partnerships with UK and German fashion buying houses."
+      },
+      {
+        "year": "2005",
+        "title": "Technology Modernization",
+        "desc": "Introduced computerized CAD pattern grading and automated spreading machinery."
+      },
+      {
+        "year": "2016",
+        "title": "Sustainability Infrastructure",
+        "desc": "Integrated comprehensive Effluent Treatment Plants (ETP) and energy audits."
+      },
+      {
+        "year": "2024\u2013Present",
+        "title": "Digital 3D Sampling & Next-Gen Manufacturing",
+        "desc": "Implementation of 3D virtual prototyping and digitized production analytics."
+      }
+    ]
+  },
+  "facilities": {
+    "hero": {
+      "eyebrow": "ADVANCED MANUFACTURING INFRASTRUCTURE",
+      "headline": "Built for Precision, Scaled for Global Demand",
+      "lead": "Our manufacturing footprint combines automated pre-production machinery, ergonomic modular sewing lines, in-house quality labs, and high-efficiency finishing units."
+    },
+    "departments": [
+      {
+        "title": "Automated Spreading & Cutting",
+        "desc": "Tension-free automated fabric spreading machines coupled with computerized CNC cutting systems guarantee millimeter-level pattern accuracy and optimize fabric utilization.",
+        "specs": [
+          "Tensionless fabric relaxation tables",
+          "Computerized CNC cutter heads",
+          "Automated notch and drill marking"
+        ],
+        "image": "https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "Modular Sewing & Assembly",
+        "desc": "High-speed programmable lockstitch, overlock, and flatlock machines configured into flexible modular cells, allowing seamless transition between complex wovens and knits.",
+        "specs": [
+          "Juki & Brother programmable machines",
+          "Unit Production System (UPS) flow",
+          "Real-time hourly production telemetry"
+        ],
+        "image": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "In-House Physical Testing Lab",
+        "desc": "Equipped with calibrated testing instruments to perform color fastness, dimensional stability, tensile strength, pilling resistance, and seam slippage tests before bulk processing.",
+        "specs": [
+          "Wascator shrinkage testing",
+          "Crockmeter & spectrophotometer",
+          "Tensile strength tester"
+        ],
+        "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "Specialized Finishing & Steam Tunnels",
+        "desc": "Vacuum pressing tables, automated steam tunnel finishers, and precision garment hanging conveyors deliver retail-ready presentation straight to buyer distribution hubs.",
+        "specs": [
+          "Steam tunnel continuous finish",
+          "Calibrated metal & needle detectors",
+          "Automated barcode carton labeling"
+        ],
+        "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"
+      }
+    ]
+  },
+  "productDevelopment": {
+    "hero": {
+      "eyebrow": "END-TO-END PRODUCT DEVELOPMENT",
+      "headline": "From Creative Vision to Production-Ready Tech Packs",
+      "lead": "Our dedicated technical design and sampling team bridges the gap between international designer sketches and scalable manufacturing reality."
+    },
+    "capabilities": [
+      {
+        "title": "3D Virtual Fit & Prototyping",
+        "desc": "Utilizing 3D apparel simulation (Clo3D/Optitex) to validate drape, tension, and fit on digital avatars, slashing traditional sample revision cycles from weeks to hours."
+      },
+      {
+        "title": "Extensive Textile & Trim Library",
+        "desc": "Curated archive of over 1,500 mill-tested fabrics including BCI cottons, European linens, Tencel, viscose blends, modal, and recycled technical synthetics."
+      },
+      {
+        "title": "Rapid Prototyping Sample Room",
+        "desc": "Autonomous sampling lines staffed by master pattern makers and sample machinists dedicated exclusively to fit samples, salesman samples, and photo shoot prototypes."
+      },
+      {
+        "title": "Comprehensive Tech Pack Engineering",
+        "desc": "Detailed construction callouts, seam specifications, grading rule libraries, and bill of materials (BOM) creation for fail-safe manufacturing handoffs."
+      }
+    ]
+  },
+  "qualityCompliance": {
+    "hero": {
+      "eyebrow": "QUALITY ASSURANCE & COMPLIANCE",
+      "headline": "A Culture of Rigorous Verification",
+      "lead": "At Sahu Global, quality is not an afterthought at the end of the line. It is engineered into every stage from incoming yarn to export palletization."
+    },
+    "pillars": [
+      {
+        "title": "4-Point Fabric Inspection",
+        "desc": "Every roll of incoming textile is inspected under standardized D65 lighting on roll-to-roll testing machines in accordance with international 4-point grading rules."
+      },
+      {
+        "title": "In-Line Statistical Process Audits",
+        "desc": "Stationary roving QA inspectors perform hourly audits on sewing lines, logging defect rates to immediately correct machine tension or needle variances."
+      },
+      {
+        "title": "Pre-Shipment Final AQL Inspection",
+        "desc": "Rigorous final batch audits conducted according to ANSI/ASQ Z1.4 (ISO 2859-1) AQL 1.5/2.5 standards before customs sealing."
+      },
+      {
+        "title": "100% Needle & Metal Detection",
+        "desc": "Every single garment passes through high-sensitivity dual-head conveyorized metal detectors to ensure zero metal contamination."
+      }
+    ]
+  },
+  "designInnovation": {
+    "hero": {
+      "eyebrow": "DESIGN & INNOVATION",
+      "headline": "Market Intelligence Paired with Textile Innovation",
+      "lead": "We help international brands anticipate seasonal consumer shifts through technical finishes, innovative fabric weaves, and modern silhouettes."
+    },
+    "innovations": [
+      {
+        "title": "Sustainable Finishing Technologies",
+        "desc": "Ozone bleaching and eco-softening techniques that cut water consumption by up to 60% compared to conventional laundry processes."
+      },
+      {
+        "title": "Functional Performance Finishes",
+        "desc": "Application of non-toxic water-repellent, moisture-wicking, anti-odor, and UV-resistant treatments onto natural and blended fabrics."
+      },
+      {
+        "title": "Circular Fabric Blends",
+        "desc": "Incorporating post-consumer recycled cotton and ocean-bound plastics into high-durability woven and knitted constructions."
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "category-womenswear",
+      "name": "Women's Apparel",
+      "tagline": "Contemporary Silhouettes, Intricate Details & Refined Tailoring",
+      "description": "Our women's division specializes in structured blazers, fluid wovens, tiered dresses, tailored trousers, and soft casuals engineered for international contemporary and high-street brands.",
+      "heroImage": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80",
+      "capabilities": [
+        "Structured blazers & tailored jackets",
+        "Fine woven blouses & embroidered tops",
+        "Printed midi & maxi dresses",
+        "Linen trousers & wide-leg bottoms",
+        "Premium loungewear & separates"
+      ],
+      "fabrics": [
+        "100% European Flax Linen",
+        "Organic Cotton Poplin & Voile",
+        "EcoVero Viscose",
+        "Silk-Cotton Blends",
+        "Recycled Polyester Georgette"
+      ],
+      "moq": "500 pieces per style / colorway",
+      "leadTime": "Sample: 5\u20137 days | Bulk: 45\u201360 days"
+    },
+    {
+      "id": "category-menswear",
+      "name": "Men's Apparel",
+      "tagline": "Architectural Precision, Crisp Tailoring & Casual Essentials",
+      "description": "Combining sharp sartorial craftsmanship with comfortable casual aesthetics. We engineer woven button-down shirts, utility overshirts, tailored chinos, and fine gauge knit polos.",
+      "heroImage": "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=1200&q=80",
+      "capabilities": [
+        "Formal & business casual dress shirts",
+        "Garment-dyed linen & cotton button-downs",
+        "Utility field jackets & overshirts",
+        "Chinos, cargo trousers & tailored shorts",
+        "Fine pique & jersey knit polos"
+      ],
+      "fabrics": [
+        "2-Ply Supima Cotton",
+        "High-Twist Oxford Weaves",
+        "Slub Cotton-Linen",
+        "Stretch Cotton Twill",
+        "Mercerized Pique Knits"
+      ],
+      "moq": "500 pieces per style / colorway",
+      "leadTime": "Sample: 5\u20137 days | Bulk: 45\u201360 days"
+    },
+    {
+      "id": "category-kidswear",
+      "name": "Kidswear & Essentials",
+      "tagline": "Certified Non-Toxic, Ultra-Soft & Built for Everyday Play",
+      "description": "Manufactured to the strictest child safety compliance standards. Our childrenswear line features skin-safe dyes, nickel-free snaps, reinforced stress seams, and organic certifications.",
+      "heroImage": "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=1200&q=80",
+      "capabilities": [
+        "Organic baby rompers & bodysuits",
+        "Toddler woven shirts & play dresses",
+        "Schoolwear & uniform basics",
+        "Knit hoodies & soft track bottoms",
+        "Hypoallergenic sleepwear"
+      ],
+      "fabrics": [
+        "100% GOTS Certified Organic Cotton",
+        "Bamboo-Cotton Blends",
+        "Brushed French Terry",
+        "Breathable Ribbed Knits"
+      ],
+      "moq": "800 pieces per style / colorway",
+      "leadTime": "Sample: 5\u20137 days | Bulk: 40\u201355 days"
+    },
+    {
+      "id": "category-activewear",
+      "name": "Performance & Activewear",
+      "tagline": "Ergonomic Stretch, Moisture Management & Technical Durability",
+      "description": "Crafted for movement. Our activewear facility integrates flatlock four-needle stitching, zoned compression, and breathable technical yarn blends for athleisure and fitness apparel.",
+      "heroImage": "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80",
+      "capabilities": [
+        "High-waisted compression leggings",
+        "Moisture-wicking training tees",
+        "Ergonomic sports bras & crop tops",
+        "Lightweight windbreakers & runners",
+        "Seamless performance layers"
+      ],
+      "fabrics": [
+        "Recycled Nylon / Spandex Blends",
+        "Quick-Dry Micro-Polyester",
+        "Antibacterial Bamboo Knits",
+        "4-Way Mechanical Stretch"
+      ],
+      "moq": "600 pieces per style / colorway",
+      "leadTime": "Sample: 7\u201310 days | Bulk: 50\u201365 days"
+    }
+  ],
+  "sustainability": {
+    "hero": {
+      "eyebrow": "RESPONSIBLE APPAREL PRODUCTION",
+      "headline": "Manufacturing with Environmental Stewardship",
+      "lead": "We recognize that the future of apparel export depends on verifiable environmental accountability. Sahu Global integrates water stewardship, renewable power, and ethical labor standards across our supply chain."
+    },
+    "targets": [
+      {
+        "metric": "100%",
+        "title": "Safe Chemical Management",
+        "desc": "Strict adherence to ZDHC MRSL guidelines to eliminate hazardous discharge."
+      },
+      {
+        "metric": "75%",
+        "title": "Water Recycling Target",
+        "desc": "In-line Effluent Treatment Plant (ETP) recycling process water for industrial and landscaping use."
+      },
+      {
+        "metric": "40%+",
+        "title": "Renewable Energy Mix",
+        "desc": "Rooftop solar photovoltaic installations offsetting manufacturing peak loads."
+      },
+      {
+        "metric": "Zero",
+        "title": "Landfill Waste Goal",
+        "desc": "Fabric cuttings and textile selvedges segregated for mechanical fiber recycling."
+      }
+    ]
+  },
+  "certifications": {
+    "hero": {
+      "eyebrow": "COMPLIANCE & AUDIT FRAMEWORKS",
+      "headline": "Transparent, Audited & Certified Standards",
+      "lead": "To provide absolute assurance to European and North American buyers, Sahu Global maintains compliance alignments with leading global social, environmental, and technical audit bodies."
+    },
+    "disclaimer": "Note for Demonstration: The certifications and audit frameworks below represent Sahu Global's operational target standards and compliance readiness. Verified certificates and official audit reports are provided directly to qualified buyers during technical discovery.",
+    "items": [
+      {
+        "code": "OEKO-TEX",
+        "name": "OEKO-TEX\u00ae Standard 100",
+        "category": "Product Safety",
+        "scope": "Tested for harmful substances; certified safe for direct skin contact across fabrics and accessories.",
+        "verifiedStatus": "Audit Ready / In Compliance"
+      },
+      {
+        "code": "GOTS",
+        "name": "Global Organic Textile Standard (GOTS)",
+        "category": "Organic Certification",
+        "scope": "Strict environmental criteria along the entire organic textiles supply chain including chemical inputs.",
+        "verifiedStatus": "Supply Chain Certified"
+      },
+      {
+        "code": "SEDEX / SMETA",
+        "name": "Sedex Members Ethical Trade Audit (SMETA)",
+        "category": "Social Compliance",
+        "scope": "4-Pillar audit covering labor standards, health & safety, environment, and business ethics.",
+        "verifiedStatus": "Registered / Audited"
+      },
+      {
+        "code": "BSCI",
+        "name": "Business Social Compliance Initiative (amfori BSCI)",
+        "category": "Social Accountability",
+        "scope": "Framework supporting international companies to improve working conditions in the global supply chain.",
+        "verifiedStatus": "Compliance Framework Followed"
+      },
+      {
+        "code": "WRAP",
+        "name": "Worldwide Responsible Accredited Production (WRAP)",
+        "category": "Labor & Security",
+        "scope": "Compliance with 12 principles covering local laws, forced labor, workplace regulations, and security.",
+        "verifiedStatus": "Audit Alignment"
+      }
+    ]
+  },
+  "insights": [
+    {
+      "id": "insight-1",
+      "title": "De-Risking Apparel Sourcing: Why European Brands Are Deepening Indian Partnerships",
+      "category": "Supply Chain Strategy",
+      "date": "November 2026",
+      "readTime": "5 min read",
+      "excerpt": "An analysis of how vertical integration, raw cotton availability, and strict ESG compliance are positioning Indian apparel manufacturers as primary alternatives for Western fashion houses.",
+      "content": "As global supply chains face continuous geopolitical and regulatory headwinds, procurement executives are recalibrating their manufacturing footprints. India's unique advantage lies in complete verticality: from domestic cotton fields to high-tech CAD sampling and export garment assembly. At Sahu Global, we observe that European buyers are no longer just comparing cut-and-make pricing; they are evaluating carbon footprints, ethical labor verifications, and digital prototyping agility."
+    },
+    {
+      "id": "insight-2",
+      "title": "Understanding AQL 1.5 vs AQL 2.5: A Buyer's Guide to Quality Benchmarking",
+      "category": "Quality Engineering",
+      "date": "October 2026",
+      "readTime": "7 min read",
+      "excerpt": "How Acceptance Quality Limit (AQL) statistical sampling works in practice, and why establishing clear critical vs. minor defect thresholds protects buyer margins.",
+      "content": "In international apparel trade, quality cannot be left to subjective interpretation. The ANSI/ASQ Z1.4 sampling system provides mathematical confidence. This guide breaks down sample size code letters, normal single sampling plans, and how Sahu Global's inline checkpoints preempt defects before batch packaging."
+    },
+    {
+      "id": "insight-3",
+      "title": "The Transition to 3D Virtual Prototyping: Slashing Lead Times and Sample Waste",
+      "category": "Innovation & Technology",
+      "date": "September 2026",
+      "readTime": "4 min read",
+      "excerpt": "How digital fabric simulation and 3D avatars are eliminating 3 to 4 rounds of physical fit samples, cutting seasonal development timelines in half.",
+      "content": "Physical sampling has traditionally been the slowest and most resource-intensive phase of apparel development. By implementing Clo3D and Optitex digital avatar fittings, Sahu Global allows brand design teams to examine drape, fabric stretch, and silhouette variations on realistic digital avatars before cutting a single meter of fabric."
+    }
+  ],
+  "careers": {
+    "hero": {
+      "eyebrow": "CAREERS AT SAHU GLOBAL",
+      "headline": "Join a Legacy of Manufacturing Excellence",
+      "lead": "We offer career opportunities across garment merchandising, CAD pattern engineering, production management, and technical quality assurance."
+    },
+    "openings": [
+      {
+        "id": "job-1",
+        "title": "Senior Apparel Merchandiser (Woven Division)",
+        "department": "Merchandising & Client Accounts",
+        "location": "Delhi NCR, India",
+        "type": "Full-Time",
+        "experience": "6\u201310 Years in Export Manufacturing",
+        "desc": "Liaise with European and US fashion brand accounts, oversee end-to-end sample approvals, costings, and bulk manufacturing schedules."
+      },
+      {
+        "id": "job-2",
+        "title": "CAD Pattern Master & 3D Garment Specialist",
+        "department": "Technical Design & Product Development",
+        "location": "Delhi NCR, India",
+        "type": "Full-Time",
+        "experience": "4\u20138 Years in Pattern Engineering",
+        "desc": "Engineer digital pattern grading and 3D virtual fittings in Clo3D/Optitex, optimizing fabric consumption markers and seam construction."
+      },
+      {
+        "id": "job-3",
+        "title": "Quality Assurance & Compliance Manager",
+        "department": "Quality Engineering",
+        "location": "Delhi NCR, India",
+        "type": "Full-Time",
+        "experience": "7\u201312 Years in Garment QA",
+        "desc": "Lead factory-wide in-line and end-of-line QA teams, uphold AQL 1.5/2.5 standards, and maintain buyer audit readiness for Sedex/BSCI."
+      }
+    ]
+  },
+  "seo": {
+    "defaultTitle": "Sahu Global Private Limited | Premier Indian Apparel Manufacturer & Exporter (Est. 1979)",
+    "defaultDescription": "Sahu Global is an established Indian apparel manufacturer and exporter founded in 1979, delivering design-led wovens, tailoring, and knitwear for international fashion brands across USA and Europe.",
+    "siteUrl": "https://www.sahuglobal.com",
+    "ogImage": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1200&q=80",
+    "keywords": "apparel manufacturer India, garment exporter India, B2B apparel sourcing, fashion clothing manufacturer, woven apparel manufacturer, Sahu Global"
+  }
+};
+window.DEFAULT_SEO = {
+  "siteUrl": "https://www.sahuglobal.com",
+  "pages": {
+    "home": {
+      "title": "Sahu Global Private Limited | Premier Indian Apparel Manufacturer & Exporter",
+      "description": "Established in 1979, Sahu Global provides engineered apparel manufacturing, 3D CAD sampling, and high-volume exports for international fashion brands in USA and Europe.",
+      "keywords": "apparel manufacturer India, garment exporter India, apparel manufacturing partner, B2B garment export, Sahu Global",
+      "canonical": "https://www.sahuglobal.com/",
+      "ogType": "website"
+    },
+    "about": {
+      "title": "Heritage & Legacy Since 1979 | Sahu Global Private Limited",
+      "description": "Learn about Sahu Global's four-decade legacy of precision garment manufacturing, global compliance, and ethical craftsmanship founded in 1979.",
+      "keywords": "Sahu Global history, apparel manufacturer 1979, Indian garment export legacy, ethical garment manufacturing",
+      "canonical": "https://www.sahuglobal.com/about",
+      "ogType": "article"
+    },
+    "global-presence": {
+      "title": "Global Presence & Export Network | Sahu Global",
+      "description": "Serving fashion capitals across North America, the UK, Europe, and the Middle East with seamless multimodal port logistics and trade compliance.",
+      "keywords": "apparel export destinations, fashion supply chain USA Europe, international garment shipment",
+      "canonical": "https://www.sahuglobal.com/global-presence",
+      "ogType": "website"
+    },
+    "capabilities": {
+      "title": "Apparel Manufacturing Capabilities & Infrastructure | Sahu Global",
+      "description": "Explore Sahu Global's end-to-end manufacturing footprint: automated CNC cutting, modular sewing lines, 3D CAD design, and in-house testing labs.",
+      "keywords": "garment manufacturing capabilities, CNC fabric cutting, modular sewing lines, apparel factory India",
+      "canonical": "https://www.sahuglobal.com/capabilities",
+      "ogType": "website"
+    },
+    "facilities": {
+      "title": "Advanced Manufacturing Facilities & Machinery | Sahu Global",
+      "description": "State-of-the-art facilities featuring automated spreading, computerized Juki/Brother sewing lines, in-house physical testing, and steam finishing.",
+      "keywords": "garment factory machinery, automated apparel manufacturing, textile testing lab India",
+      "canonical": "https://www.sahuglobal.com/facilities",
+      "ogType": "website"
+    },
+    "product-development": {
+      "title": "Product Development & 3D Virtual Prototyping | Sahu Global",
+      "description": "Accelerate fashion sample cycles with Clo3D digital avatar fitting, technical tech-pack engineering, and an archive of 1,500+ curated fabrics.",
+      "keywords": "3D garment prototyping, Clo3D sampling India, tech pack engineering, fabric sourcing India",
+      "canonical": "https://www.sahuglobal.com/product-development",
+      "ogType": "website"
+    },
+    "quality-compliance": {
+      "title": "Quality Assurance & AQL Standards | Sahu Global",
+      "description": "Uncompromising quality through 4-point fabric grading, in-line statistical process audits, conveyor needle detection, and AQL 1.5/2.5 pre-shipment clearance.",
+      "keywords": "AQL 1.5 garment inspection, 4-point fabric inspection, garment quality control India, needle detection",
+      "canonical": "https://www.sahuglobal.com/quality-compliance",
+      "ogType": "website"
+    },
+    "design-innovation": {
+      "title": "Design & Textile Innovation | Sahu Global",
+      "description": "Forward-looking fabric developments, ozone water-saving washing, eco-finishing, and functional performance blends for contemporary apparel.",
+      "keywords": "sustainable textile finishing, ozone washing, functional fabric finishes, garment innovation",
+      "canonical": "https://www.sahuglobal.com/design-innovation",
+      "ogType": "website"
+    },
+    "products": {
+      "title": "Apparel Categories & Collections | Sahu Global",
+      "description": "Explore our manufacturing capabilities across Women's Apparel, Men's Tailoring, Kidswear & Essentials, and Performance Activewear.",
+      "keywords": "apparel collections manufacturer, womenswear manufacturer, menswear exporter, kidswear factory",
+      "canonical": "https://www.sahuglobal.com/products",
+      "ogType": "website"
+    },
+    "category-womenswear": {
+      "title": "Women's Apparel Manufacturing & Export | Sahu Global",
+      "description": "Expert manufacturing of women's tailored blazers, woven dresses, blouses, and linen separates with fine seam finishing and fast sampling.",
+      "keywords": "womenswear manufacturer India, dress manufacturer, linen clothing exporter, women fashion supplier",
+      "canonical": "https://www.sahuglobal.com/products/womenswear",
+      "ogType": "product"
+    },
+    "category-menswear": {
+      "title": "Men's Apparel & Tailored Shirts Manufacturing | Sahu Global",
+      "description": "Precision manufacturing of formal dress shirts, garment-dyed utility overshirts, tailored chinos, and fine gauge knit polos.",
+      "keywords": "menswear manufacturer India, dress shirt manufacturer, chino trousers exporter, knit polo supplier",
+      "canonical": "https://www.sahuglobal.com/products/menswear",
+      "ogType": "product"
+    },
+    "category-kidswear": {
+      "title": "Kidswear & Baby Essentials Manufacturing | Sahu Global",
+      "description": "Skin-safe, certified organic cotton babywear, schoolwear basics, and playwear manufactured under strict child safety and non-toxic dye standards.",
+      "keywords": "kidswear manufacturer India, organic baby clothing exporter, children wear factory GOTS",
+      "canonical": "https://www.sahuglobal.com/products/kidswear",
+      "ogType": "product"
+    },
+    "category-activewear": {
+      "title": "Performance & Activewear Manufacturing | Sahu Global",
+      "description": "Technical athletic apparel featuring 4-way stretch fabrics, flatlock stitching, zoned moisture-wicking, and seamless compression construction.",
+      "keywords": "activewear manufacturer India, athleisure clothing exporter, seamless leggings manufacturer",
+      "canonical": "https://www.sahuglobal.com/products/activewear",
+      "ogType": "product"
+    },
+    "sustainability": {
+      "title": "Sustainability & Environmental Stewardship | Sahu Global",
+      "description": "Our roadmap to zero-impact manufacturing: effluent water recycling, rooftop solar energy, organic cotton certifications, and circular textile waste.",
+      "keywords": "sustainable garment manufacturer, eco friendly apparel factory India, ETP water recycling, GOTS organic",
+      "canonical": "https://www.sahuglobal.com/sustainability",
+      "ogType": "website"
+    },
+    "certifications": {
+      "title": "Certifications & Global Audit Frameworks | Sahu Global",
+      "description": "Compliance readiness and alignments with OEKO-TEX Standard 100, GOTS, SMETA/Sedex 4-Pillar, and amfori BSCI social accountability.",
+      "keywords": "OEKO-TEX garment manufacturer, GOTS certified factory India, Sedex audited apparel supplier",
+      "canonical": "https://www.sahuglobal.com/certifications",
+      "ogType": "website"
+    },
+    "insights": {
+      "title": "Industry Insights & Sourcing Intelligence | Sahu Global",
+      "description": "Expert perspectives on European sourcing shifts, AQL quality benchmarks, and the 3D virtual prototyping revolution in global fashion.",
+      "keywords": "apparel sourcing insights, fashion supply chain analysis, garment export trends",
+      "canonical": "https://www.sahuglobal.com/insights",
+      "ogType": "blog"
+    },
+    "careers": {
+      "title": "Careers & Opportunities | Sahu Global Private Limited",
+      "description": "Build a rewarding career in global apparel engineering, garment merchandising, CAD pattern design, and quality assurance.",
+      "keywords": "apparel industry jobs Delhi NCR, garment merchandiser careers, CAD pattern master vacancy",
+      "canonical": "https://www.sahuglobal.com/careers",
+      "ogType": "website"
+    },
+    "contact": {
+      "title": "Buyer Enquiry & Sourcing Consultation | Sahu Global",
+      "description": "Initiate a production enquiry, request sample feasibility, and connect directly with our international merchandising directors.",
+      "keywords": "contact Sahu Global, apparel quotation request, garment manufacturing enquiry, B2B sourcing RFQ",
+      "canonical": "https://www.sahuglobal.com/contact",
+      "ogType": "website"
+    },
+    "privacy": {
+      "title": "Privacy Policy | Sahu Global Private Limited",
+      "description": "Privacy policy and data governance practices of Sahu Global Private Limited regarding buyer data, enquiry details, and digital compliance.",
+      "canonical": "https://www.sahuglobal.com/privacy-policy",
+      "ogType": "website"
+    },
+    "terms": {
+      "title": "Terms of Business | Sahu Global Private Limited",
+      "description": "Commercial terms of business, manufacturing quotation validity, intellectual property, and sampling agreements.",
+      "canonical": "https://www.sahuglobal.com/terms",
+      "ogType": "website"
+    },
+    "cookies": {
+      "title": "Cookie Notice | Sahu Global Private Limited",
+      "description": "Information on how Sahu Global utilizes essential and analytical cookies to improve visitor navigation and performance.",
+      "canonical": "https://www.sahuglobal.com/cookie-notice",
+      "ogType": "website"
+    }
+  }
+};
+window.DEFAULT_ENQUIRIES = [
+  {
+    "id": "ENQ-2026-5073",
+    "createdAt": "2026-11-20T15:25:33.411Z",
+    "fullName": "Alexander Wright",
+    "companyName": "Savile Row Bespoke NY",
+    "businessEmail": "alex.wright@savilerowny.com",
+    "phone": "+1 212 988 1200",
+    "country": "United States",
+    "productInterest": "Men's Apparel",
+    "approximateVolume": "5,000 \u2013 10,000 units",
+    "targetDelivery": "Q2 2027",
+    "message": "Automated test enquiry for tailored Supima cotton shirts and AQL 1.5 inspection.",
+    "techPackFile": null,
+    "techPackOriginalName": null,
+    "status": "New",
+    "priority": "High",
+    "notes": "Initial buyer web enquiry received. Awaiting merchandising review."
+  },
+  {
+    "id": "ENQ-2026-8801",
+    "createdAt": "2026-11-19T14:22:10Z",
+    "fullName": "Charlotte Dubois",
+    "companyName": "Maison \u00c9toile Paris",
+    "businessEmail": "c.dubois@maisonetoile.fr",
+    "phone": "+33 1 42 68 55 00",
+    "country": "France",
+    "productInterest": "Women's Apparel",
+    "approximateVolume": "2,500 \u2013 5,000 units/style",
+    "targetDelivery": "Q2 2027",
+    "message": "Seeking a manufacturing partner for our Autumn/Winter linen and EcoVero blend womenswear collection. Require GOTS certified fabrics and AQL 1.5 final inspection. Tech packs are ready for sample costing.",
+    "status": "In Review",
+    "priority": "High",
+    "notes": "Reviewed tech pack specs. French sizing grade. Fabric swatches requested for 60/40 linen-viscose blend."
+  },
+  {
+    "id": "ENQ-2026-8802",
+    "createdAt": "2026-11-18T09:45:00Z",
+    "fullName": "Marcus Vance",
+    "companyName": "Vance & Co. Clothiers",
+    "businessEmail": "marcus.v@vanceclothiers.co.uk",
+    "phone": "+44 20 7946 0912",
+    "country": "United Kingdom",
+    "productInterest": "Men's Apparel",
+    "approximateVolume": "5,000 \u2013 10,000 units/style",
+    "targetDelivery": "Q1 2027",
+    "message": "Looking to transition our core tailored Oxford shirts and garment-dyed utility overshirts from Southeast Asia to India for better cotton quality and direct mill verticality.",
+    "status": "Sample Sent",
+    "priority": "High",
+    "notes": "Initial fit sample in 2-ply Supima dispatched via DHL Express on Nov 18. Tracking shared."
+  },
+  {
+    "id": "ENQ-2026-8803",
+    "createdAt": "2026-11-16T18:10:30Z",
+    "fullName": "Elena Rostova",
+    "companyName": "Nordic Weave Studio",
+    "businessEmail": "elena@nordicweavestudio.se",
+    "phone": "+46 8 123 4567",
+    "country": "Sweden",
+    "productInterest": "Sustainability & Organic",
+    "approximateVolume": "1,000 \u2013 2,500 units/style",
+    "targetDelivery": "Q3 2027",
+    "message": "We require OEKO-TEX Standard 100 Class 1 certified organic cotton loungewear and knit essentials with waterless or low-impact dyeing methods. Please confirm your ZDHC compliance level.",
+    "status": "New",
+    "priority": "Medium",
+    "notes": "Awaiting technical review on low-impact reactive dye capabilities."
+  },
+  {
+    "id": "ENQ-2026-8804",
+    "createdAt": "2026-11-14T21:05:15Z",
+    "fullName": "David K. Miller",
+    "companyName": "Apex Athletics USA",
+    "businessEmail": "d.miller@apexathletics.com",
+    "phone": "+1 212 555 0198",
+    "country": "United States",
+    "productInterest": "Performance & Activewear",
+    "approximateVolume": "10,000+ units/style",
+    "targetDelivery": "Q2 2027",
+    "message": "Evaluating manufacturing partners for high-gauge seamless compression leggings and 4-way stretch moisture-wicking tops. Need unit pricing for 15,000 pcs per colorway.",
+    "status": "Contacted",
+    "priority": "High",
+    "notes": "Introductory discovery call completed. Costing matrix sent for FOB Nhava Sheva port."
+  }
+];
