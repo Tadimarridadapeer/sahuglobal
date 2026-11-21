@@ -1624,6 +1624,29 @@ body.cookie-dismissed .hero-arch-card {
 .tag-rdm { bottom: 12%; right: -2%; }
 .tag-dxb { bottom: 6%; left: 4%; }
 
+.globe-360-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(26, 34, 22, 0.88);
+  border: 1px solid rgba(132, 152, 110, 0.4);
+  border-radius: 20px;
+  padding: 0.35rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--royal-gold-bright, #84986E);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  pointer-events: none;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 5;
+}
+
 /* ==========================================================================
    GLOBAL LOGISTICS GRID (Bright Warm Ivory)
    ========================================================================== */

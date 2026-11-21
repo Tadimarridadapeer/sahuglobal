@@ -301,291 +301,293 @@
     });
   }
 
-  // 9. ROTATING 3D EARTH GLOBE ANIMATION (Worldwide Apparel Exports)
+  // 9. PHOTOREALISTIC 3D EARTH GLOBE (360° Rotating WebGL with Three.js)
   function initRotatingEarthGlobe() {
     const canvas = document.getElementById('earth-globe-canvas');
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const size = 560;
-    canvas.width = size * dpr;
-    canvas.height = size * dpr;
-    ctx.scale(dpr, dpr);
-
-    const cx = size / 2;
-    const cy = size / 2;
-    const R = 210; // Globe radius
-    const tilt = 0.26; // Earth axial tilt (~15 degrees)
-
-    let rotation = 0; // Current longitude rotation in radians
-    let isDragging = false;
-    let startX = 0;
-    let dragVelocity = 0;
-
-    // Major global trade hub coordinates: [lat, lon, name, code]
-    const hubs = [
-      { lat: 28.6139, lon: 77.2090, name: 'India (New Delhi NCR)', isOrigin: true },
-      { lat: 40.7128, lon: -74.0060, name: 'New York (USA)', isOrigin: false },
-      { lat: 51.5074, lon: -0.1278, name: 'London (UK)', isOrigin: false },
-      { lat: 51.9244, lon: 4.4777, name: 'Rotterdam (EU)', isOrigin: false },
-      { lat: 25.2048, lon: 55.2708, name: 'Dubai (UAE)', isOrigin: false },
-      { lat: 35.6762, lon: 139.6503, name: 'Tokyo (APAC)', isOrigin: false }
-    ];
-
-    // Simplified Continent Polygons (lat/lon coordinates)
-    const continents = [
-      // North America
-      [
-        [65, -145], [70, -120], [60, -80], [52, -58], [42, -68],
-        [30, -82], [24, -80], [18, -96], [15, -90], [28, -112],
-        [38, -122], [48, -125], [58, -140], [65, -145]
-      ],
-      // South America
-      [
-        [10, -75], [6, -52], [-10, -36], [-22, -42], [-35, -55],
-        [-52, -68], [-42, -74], [-18, -72], [-4, -80], [10, -75]
-      ],
-      // Europe
-      [
-        [70, 25], [62, 32], [55, 20], [45, 12], [36, -5],
-        [44, -1], [50, 4], [58, 6], [68, 14], [70, 25]
-      ],
-      // Africa
-      [
-        [36, -5], [37, 10], [32, 32], [12, 44], [-4, 40],
-        [-25, 32], [-34, 18], [-20, 12], [5, 8], [12, -16],
-        [28, -12], [36, -5]
-      ],
-      // Asia & India
-      [
-        [70, 80], [60, 140], [40, 140], [35, 120], [22, 115],
-        [15, 105], [22, 88], [8, 77], [22, 69], [25, 60],
-        [30, 48], [40, 50], [55, 60], [65, 75], [70, 80]
-      ],
-      // Australia
-      [
-        [-12, 132], [-16, 146], [-28, 153], [-38, 145],
-        [-35, 118], [-22, 114], [-12, 132]
-      ]
-    ];
-
-    // Mouse drag handlers
-    canvas.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      startX = e.clientX;
-      dragVelocity = 0;
-    });
-
-    window.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      const dx = e.clientX - startX;
-      startX = e.clientX;
-      rotation += dx * 0.006;
-      dragVelocity = dx * 0.006;
-    });
-
-    window.addEventListener('mouseup', () => {
-      isDragging = false;
-    });
-
-    // Touch support for mobile
-    canvas.addEventListener('touchstart', (e) => {
-      if (e.touches.length === 1) {
-        isDragging = true;
-        startX = e.touches[0].clientX;
-        dragVelocity = 0;
-      }
-    });
-
-    window.addEventListener('touchmove', (e) => {
-      if (!isDragging || e.touches.length !== 1) return;
-      const dx = e.touches[0].clientX - startX;
-      startX = e.touches[0].clientX;
-      rotation += dx * 0.006;
-      dragVelocity = dx * 0.006;
-    });
-
-    window.addEventListener('touchend', () => {
-      isDragging = false;
-    });
-
-    // 3D Spherical Coordinate Projection
-    function project(latDeg, lonDeg) {
-      const lat = (latDeg * Math.PI) / 180;
-      const lon = (lonDeg * Math.PI) / 180 + rotation;
-
-      const x3 = R * Math.cos(lat) * Math.sin(lon);
-      const y3 = R * Math.sin(lat);
-      const z3 = R * Math.cos(lat) * Math.cos(lon);
-
-      // Apply axial tilt
-      const yTilted = y3 * Math.cos(tilt) - z3 * Math.sin(tilt);
-      const zTilted = y3 * Math.sin(tilt) + z3 * Math.cos(tilt);
-
-      return {
-        x: cx + x3,
-        y: cy - yTilted,
-        z: zTilted,
-        visible: zTilted > 0
-      };
+    // Ensure THREE is loaded
+    if (typeof THREE === 'undefined') {
+      setTimeout(initRotatingEarthGlobe, 120);
+      return;
     }
 
-    let pulseStep = 0;
+    const wrap = canvas.parentElement;
+    const width = wrap.clientWidth || 560;
+    const height = wrap.clientHeight || 560;
 
-    function renderGlobe() {
-      ctx.clearRect(0, 0, size, size);
-
-      if (!isDragging) {
-        dragVelocity *= 0.94;
-        rotation += 0.005 + dragVelocity;
-      }
-      pulseStep += 0.035;
-
-      // 1. Base Dark Luxury Sphere
-      const sphereGrad = ctx.createRadialGradient(cx - R * 0.35, cy - R * 0.35, R * 0.1, cx, cy, R);
-      sphereGrad.addColorStop(0, '#2C221F');
-      sphereGrad.addColorStop(0.7, '#1E1715');
-      sphereGrad.addColorStop(1, '#120D0C');
-
-      ctx.beginPath();
-      ctx.arc(cx, cy, R, 0, Math.PI * 2);
-      ctx.fillStyle = sphereGrad;
-      ctx.fill();
-
-      // Outer metallic antique gold ring
-      ctx.strokeStyle = 'rgba(189, 144, 87, 0.45)';
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-
-      // 2. Latitude Parallels
-      ctx.strokeStyle = 'rgba(163, 119, 69, 0.18)';
-      ctx.lineWidth = 1;
-      [-60, -30, 0, 30, 60].forEach(lat => {
-        ctx.beginPath();
-        let started = false;
-        for (let lon = -180; lon <= 180; lon += 5) {
-          const pt = project(lat, lon);
-          if (pt.visible) {
-            if (!started) { ctx.moveTo(pt.x, pt.y); started = true; }
-            else ctx.lineTo(pt.x, pt.y);
-          } else {
-            started = false;
-          }
-        }
-        ctx.stroke();
-      });
-
-      // 3. Longitude Meridians
-      for (let lon = -180; lon < 180; lon += 30) {
-        ctx.beginPath();
-        let started = false;
-        for (let lat = -80; lat <= 80; lat += 4) {
-          const pt = project(lat, lon);
-          if (pt.visible) {
-            if (!started) { ctx.moveTo(pt.x, pt.y); started = true; }
-            else ctx.lineTo(pt.x, pt.y);
-          } else {
-            started = false;
-          }
-        }
-        ctx.stroke();
-      }
-
-      // 4. Rotating Continent Polygons
-      continents.forEach(poly => {
-        ctx.beginPath();
-        let anyVisible = false;
-        let started = false;
-
-        poly.forEach(([lat, lon]) => {
-          const pt = project(lat, lon);
-          if (pt.visible) {
-            anyVisible = true;
-            if (!started) { ctx.moveTo(pt.x, pt.y); started = true; }
-            else ctx.lineTo(pt.x, pt.y);
-          } else {
-            started = false;
-          }
-        });
-
-        if (anyVisible) {
-          ctx.fillStyle = 'rgba(189, 144, 87, 0.24)';
-          ctx.fill();
-          ctx.strokeStyle = 'rgba(189, 144, 87, 0.6)';
-          ctx.lineWidth = 1.2;
-          ctx.stroke();
-        }
-      });
-
-      // 5. Export Shipping Arcs from India
-      const origin = project(hubs[0].lat, hubs[0].lon);
-
-      hubs.slice(1).forEach((destHub, idx) => {
-        const dest = project(destHub.lat, destHub.lon);
-
-        if (origin.visible || dest.visible) {
-          const midX = (origin.x + dest.x) / 2;
-          const midY = (origin.y + dest.y) / 2 - 36;
-
-          ctx.beginPath();
-          ctx.moveTo(origin.x, origin.y);
-          ctx.quadraticCurveTo(midX, midY, dest.x, dest.y);
-          ctx.strokeStyle = 'rgba(189, 144, 87, 0.45)';
-          ctx.lineWidth = 1.5;
-          ctx.setLineDash([4, 4]);
-          ctx.stroke();
-          ctx.setLineDash([]);
-
-          // Moving export shipment photon
-          const t = ((pulseStep + idx * 0.25) % 1);
-          const px = (1 - t) * (1 - t) * origin.x + 2 * (1 - t) * t * midX + t * t * dest.x;
-          const py = (1 - t) * (1 - t) * origin.y + 2 * (1 - t) * t * midY + t * t * dest.y;
-
-          ctx.beginPath();
-          ctx.arc(px, py, 3.5, 0, Math.PI * 2);
-          ctx.fillStyle = '#FFFFFF';
-          ctx.fill();
-        }
-      });
-
-      // 6. Global Trade Hubs
-      hubs.forEach(hub => {
-        const pt = project(hub.lat, hub.lon);
-        if (!pt.visible) return;
-
-        if (hub.isOrigin) {
-          // India Origin Beacon (Imperial Burgundy & Radiant Gold)
-          const ringRad = 7 + (Math.sin(pulseStep * 3) + 1) * 5;
-          ctx.beginPath();
-          ctx.arc(pt.x, pt.y, ringRad, 0, Math.PI * 2);
-          ctx.strokeStyle = 'rgba(189, 144, 87, 0.85)';
-          ctx.lineWidth = 1.5;
-          ctx.stroke();
-
-          ctx.beginPath();
-          ctx.arc(pt.x, pt.y, 5.5, 0, Math.PI * 2);
-          ctx.fillStyle = '#5C1324';
-          ctx.fill();
-          ctx.strokeStyle = '#FFFFFF';
-          ctx.lineWidth = 1.5;
-          ctx.stroke();
-        } else {
-          // Destination Hubs
-          ctx.beginPath();
-          ctx.arc(pt.x, pt.y, 4, 0, Math.PI * 2);
-          ctx.fillStyle = '#BD9057';
-          ctx.fill();
-          ctx.strokeStyle = '#FFFFFF';
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-      });
-
-      requestAnimationFrame(renderGlobe);
+    // WebGL Renderer
+    const renderer = new THREE.WebGLRenderer({
+      canvas: canvas,
+      antialias: true,
+      alpha: true,
+      powerPreference: 'high-performance'
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setSize(width, height);
+    if (renderer.toneMapping !== undefined) {
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.15;
     }
 
-    requestAnimationFrame(renderGlobe);
+    // Scene & Camera
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 1000);
+    camera.position.set(0, 0, 5.2);
+
+    // Group for 360-degree rotation and axial tilt
+    const globeGroup = new THREE.Group();
+    globeGroup.rotation.z = THREE.MathUtils.degToRad(14); // Realistic Earth axial tilt
+    scene.add(globeGroup);
+
+    const GLOBE_RADIUS = 1.95;
+
+    // Texture loading
+    const textureLoader = new THREE.TextureLoader();
+    const earthTexture = textureLoader.load(
+      'assets/earth-blue-marble.jpg',
+      () => { renderer.render(scene, camera); },
+      undefined,
+      () => {
+        earthTexture.image = textureLoader.load('assets/earth-dark.jpg');
+      }
+    );
+
+    // Realistic Earth Sphere
+    const earthGeometry = new THREE.SphereGeometry(GLOBE_RADIUS, 64, 64);
+    const earthMaterial = new THREE.MeshStandardMaterial({
+      map: earthTexture,
+      roughness: 0.65,
+      metalness: 0.08
+    });
+    const earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
+    globeGroup.add(earthMesh);
+
+    // Outer Atmospheric Fresnel Glow Layer
+    const atmosphereGeometry = new THREE.SphereGeometry(GLOBE_RADIUS * 1.025, 64, 64);
+    const atmosphereMaterial = new THREE.MeshBasicMaterial({
+      color: 0x84986E,
+      transparent: true,
+      opacity: 0.18,
+      side: THREE.BackSide,
+      blending: THREE.AdditiveBlending
+    });
+    const atmosphereMesh = new THREE.Mesh(atmosphereGeometry, atmosphereMaterial);
+    globeGroup.add(atmosphereMesh);
+
+    // Lat/Lon to 3D Cartesian coordinates
+    function latLonToVector3(lat, lon, radius) {
+      const phi = (90 - lat) * (Math.PI / 180);
+      const theta = (lon + 180) * (Math.PI / 180);
+      const x = -(radius * Math.sin(phi) * Math.cos(theta));
+      const z = radius * Math.sin(phi) * Math.sin(theta);
+      const y = radius * Math.cos(phi);
+      return new THREE.Vector3(x, y, z);
+    }
+
+    // Trade Hubs: Origin is Sahu Global Noida HQ
+    const originHub = { lat: 28.6280, lon: 77.3789, name: 'India (Noida HQ)' };
+    const destinationHubs = [
+      { id: 'ny', lat: 40.7128, lon: -74.0060, name: 'New York, USA' },
+      { id: 'ldn', lat: 51.5074, lon: -0.1278, name: 'London, UK' },
+      { id: 'rdm', lat: 51.9244, lon: 4.4777, name: 'Rotterdam, EU' },
+      { id: 'dxb', lat: 25.2048, lon: 55.2708, name: 'Dubai, UAE' },
+      { id: 'tky', lat: 35.6762, lon: 139.6503, name: 'Tokyo, APAC' }
+    ];
+
+    // Origin Beacon at Noida / New Delhi
+    const originPos = latLonToVector3(originHub.lat, originHub.lon, GLOBE_RADIUS);
+    const originMarkerGeo = new THREE.SphereGeometry(0.045, 16, 16);
+    const originMarkerMat = new THREE.MeshBasicMaterial({ color: 0xFFFFFF });
+    const originMarker = new THREE.Mesh(originMarkerGeo, originMarkerMat);
+    originMarker.position.copy(originPos);
+    globeGroup.add(originMarker);
+
+    // Pulsing ring at Origin
+    const originRingGeo = new THREE.RingGeometry(0.05, 0.09, 32);
+    const originRingMat = new THREE.MeshBasicMaterial({
+      color: 0xBD9057,
+      side: THREE.DoubleSide,
+      transparent: true,
+      opacity: 0.8
+    });
+    const originRing = new THREE.Mesh(originRingGeo, originRingMat);
+    originRing.position.copy(originPos.clone().multiplyScalar(1.002));
+    originRing.lookAt(originPos.clone().multiplyScalar(2));
+    globeGroup.add(originRing);
+
+    // Corridors & Animated Photon Particles
+    const corridors = [];
+    const photonParticles = [];
+
+    destinationHubs.forEach(dest => {
+      const destPos = latLonToVector3(dest.lat, dest.lon, GLOBE_RADIUS);
+
+      // Destination Pin Marker
+      const pinGeo = new THREE.SphereGeometry(0.035, 16, 16);
+      const pinMat = new THREE.MeshBasicMaterial({ color: 0x84986E });
+      const pinMesh = new THREE.Mesh(pinGeo, pinMat);
+      pinMesh.position.copy(destPos);
+      globeGroup.add(pinMesh);
+
+      // Destination Glow Ring
+      const pinRingGeo = new THREE.RingGeometry(0.04, 0.07, 24);
+      const pinRingMat = new THREE.MeshBasicMaterial({
+        color: 0x84986E,
+        side: THREE.DoubleSide,
+        transparent: true,
+        opacity: 0.7
+      });
+      const pinRing = new THREE.Mesh(pinRingGeo, pinRingMat);
+      pinRing.position.copy(destPos.clone().multiplyScalar(1.002));
+      pinRing.lookAt(destPos.clone().multiplyScalar(2));
+      globeGroup.add(pinRing);
+
+      // 3D Parabolic Great-Circle Arc
+      const distance = originPos.distanceTo(destPos);
+      const altitude = GLOBE_RADIUS + Math.min(distance * 0.38, 0.95);
+      const midPoint = originPos.clone().add(destPos).multiplyScalar(0.5).normalize().multiplyScalar(altitude);
+      const curve = new THREE.QuadraticBezierCurve3(originPos, midPoint, destPos);
+
+      // Glowing Arc Tube
+      const tubeGeo = new THREE.TubeGeometry(curve, 44, 0.009, 6, false);
+      const tubeMat = new THREE.MeshBasicMaterial({
+        color: 0xBD9057,
+        transparent: true,
+        opacity: 0.65
+      });
+      const tubeMesh = new THREE.Mesh(tubeGeo, tubeMat);
+      globeGroup.add(tubeMesh);
+
+      // Photon packet traveling along the curve
+      const photonGeo = new THREE.SphereGeometry(0.032, 12, 12);
+      const photonMat = new THREE.MeshBasicMaterial({ color: 0xFFFAF0 });
+      const photon = new THREE.Mesh(photonGeo, photonMat);
+      globeGroup.add(photon);
+
+      photonParticles.push({
+        photon: photon,
+        curve: curve,
+        progress: Math.random(),
+        speed: 0.0045 + Math.random() * 0.002
+      });
+
+      corridors.push({
+        id: dest.id,
+        destPos: destPos,
+        tagEl: document.querySelector('.tag-' + dest.id)
+      });
+    });
+
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.92);
+    scene.add(ambientLight);
+
+    const sunLight = new THREE.DirectionalLight(0xFFFDF5, 1.15);
+    sunLight.position.set(5, 3, 5);
+    scene.add(sunLight);
+
+    const rimLight = new THREE.DirectionalLight(0x84986E, 0.55);
+    rimLight.position.set(-5, -2, -4);
+    scene.add(rimLight);
+
+    // 360-Degree Continuous Rotation & Interactive Drag Controls
+    let autoRotate = true;
+    let autoSpeed = 0.0025; // Smooth continuous 360° spin
+    let isPointerDown = false;
+    let prevPointerX = 0;
+    let prevPointerY = 0;
+    let pointerVelocityX = 0;
+    let pointerVelocityY = 0;
+
+    canvas.addEventListener('pointerdown', (e) => {
+      isPointerDown = true;
+      autoRotate = false;
+      prevPointerX = e.clientX;
+      prevPointerY = e.clientY;
+      pointerVelocityX = 0;
+      pointerVelocityY = 0;
+      canvas.setPointerCapture(e.pointerId);
+    });
+
+    canvas.addEventListener('pointermove', (e) => {
+      if (!isPointerDown) return;
+      const deltaX = e.clientX - prevPointerX;
+      const deltaY = e.clientY - prevPointerY;
+      prevPointerX = e.clientX;
+      prevPointerY = e.clientY;
+
+      globeGroup.rotation.y += deltaX * 0.0055;
+      globeGroup.rotation.x += deltaY * 0.0055;
+      globeGroup.rotation.x = Math.max(-0.65, Math.min(0.65, globeGroup.rotation.x));
+
+      pointerVelocityX = deltaX * 0.0055;
+      pointerVelocityY = deltaY * 0.0055;
+    });
+
+    const onPointerUp = (e) => {
+      if (!isPointerDown) return;
+      isPointerDown = false;
+      try { canvas.releasePointerCapture(e.pointerId); } catch(err) {}
+      setTimeout(() => {
+        if (!isPointerDown) autoRotate = true;
+      }, 1500);
+    };
+
+    canvas.addEventListener('pointerup', onPointerUp);
+    canvas.addEventListener('pointercancel', onPointerUp);
+
+    // Resize Observer
+    const resizeObserver = new ResizeObserver(() => {
+      const w = wrap.clientWidth || 560;
+      const h = wrap.clientHeight || 560;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    });
+    resizeObserver.observe(wrap);
+
+    // Animation Render Loop
+    let pulseTime = 0;
+    function animate() {
+      requestAnimationFrame(animate);
+
+      pulseTime += 0.04;
+      const ringScale = 1 + Math.sin(pulseTime) * 0.25;
+      originRing.scale.set(ringScale, ringScale, 1);
+      originRing.material.opacity = 0.5 + Math.cos(pulseTime) * 0.3;
+
+      // 360-degree rotation
+      if (autoRotate) {
+        globeGroup.rotation.y += autoSpeed;
+      } else if (!isPointerDown) {
+        globeGroup.rotation.y += pointerVelocityX;
+        globeGroup.rotation.x += pointerVelocityY;
+        pointerVelocityX *= 0.94;
+        pointerVelocityY *= 0.94;
+      }
+
+      // Animate photon particles along trade arcs
+      photonParticles.forEach(p => {
+        p.progress += p.speed;
+        if (p.progress > 1) p.progress = 0;
+        const pt = p.curve.getPointAt(p.progress);
+        p.photon.position.copy(pt);
+      });
+
+      // Update 2D Floating Tag Callouts according to 3D orientation
+      corridors.forEach(c => {
+        if (!c.tagEl) return;
+        const worldPos = c.destPos.clone().applyMatrix4(globeGroup.matrixWorld);
+        const screenPos = worldPos.clone().project(camera);
+        const isFacing = screenPos.z < 1 && worldPos.z > 0;
+        c.tagEl.style.opacity = isFacing ? '1' : '0.4';
+      });
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
   }
 
   // INNOVATION PARADIGM STEP CONTROLLER (Zero Empty Space, Auto-Cycle & Interactive Tabs)
