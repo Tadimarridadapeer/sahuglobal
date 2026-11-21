@@ -210,20 +210,18 @@ body.cursor-has-label .cursor-label {
 /* STAGE 02: MORPH BAND & DESIGN INNOVATION */
 .sg-morph-band {
   position: relative;
-  height: 280vh;
+  padding: clamp(5rem, 8vh, 7.5rem) 0;
   background: var(--color-bg-alt);
   border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
 }
 
 .sg-morph-sticky-wrap {
-  position: sticky;
-  top: var(--header-height, 80px);
-  height: calc(100vh - var(--header-height, 80px));
+  position: relative;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   z-index: 5;
 }
 
@@ -233,14 +231,19 @@ body.cursor-has-label .cursor-label {
   left: 0;
   white-space: nowrap;
   font-family: var(--font-royal);
-  font-size: 14vw;
-  font-weight: 600;
+  font-size: clamp(4rem, 8.5vw, 7rem);
+  font-weight: 700;
   letter-spacing: 0.04em;
-  color: rgba(92, 19, 36, 0.04);
+  color: rgba(92, 19, 36, 0.035);
   pointer-events: none;
   transform: translateY(-50%);
-  will-change: transform;
+  animation: marqueeContinuous 38s linear infinite;
   z-index: 1;
+}
+
+@keyframes marqueeContinuous {
+  0% { transform: translate3d(0, -50%, 0); }
+  100% { transform: translate3d(-50%, -50%, 0); }
 }
 
 .sg-morph-grid {

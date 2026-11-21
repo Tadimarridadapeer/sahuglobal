@@ -145,35 +145,7 @@
         s1Sub.style.opacity = 1 - p * 1.1;
       }
 
-      // STAGE 2: MORPH BAND ("INNOVATION PARADIGM" / "ENGINEERED FROM FIBER TO FIT")
-      const stage2 = document.querySelector('.sg-morph-band');
-      const marquee = document.querySelector('.sg-morph-marquee');
 
-      if (stage2) {
-        const rect = stage2.getBoundingClientRect();
-        const totalDist = stage2.offsetHeight - vh;
-        const rawP = totalDist > 0 ? -rect.top / totalDist : 0;
-        const p = clamp(rawP);
-
-        if (marquee) {
-          marquee.style.transform = `translate3d(${-p * 45}vw, -50%, 0)`;
-        }
-
-        // Stepped text and synchronized card switching across 3 distinct phases
-        const activeIdx = p >= 0.66 ? 2 : (p >= 0.33 ? 1 : 0);
-
-        stage2.querySelectorAll('.morph-step').forEach((el, idx) => {
-          el.classList.toggle('active', idx === activeIdx);
-        });
-
-        stage2.querySelectorAll('.sg-morph-card').forEach((el, idx) => {
-          el.classList.toggle('active', idx === activeIdx);
-        });
-
-        stage2.querySelectorAll('.morph-progress-step').forEach((el, idx) => {
-          el.classList.toggle('active', idx === activeIdx);
-        });
-      }
 
       requestAnimationFrame(scrollRenderLoop);
     }
@@ -616,22 +588,58 @@
     requestAnimationFrame(renderGlobe);
   }
 
-  // INTERACTIVE MORPH PROGRESS TABS
-  function initMorphProgressButtons() {
+  // INNOVATION PARADIGM STEP CONTROLLER (Zero Empty Space, Auto-Cycle & Interactive Tabs)
+  function initMorphStepController() {
     const stage2 = document.querySelector('.sg-morph-band');
     if (!stage2) return;
-    const progressBtns = stage2.querySelectorAll('.morph-progress-step');
-    progressBtns.forEach((btn, idx) => {
+
+    const steps = stage2.querySelectorAll('.morph-step');
+    const cards = stage2.querySelectorAll('.sg-morph-card');
+    const btns = stage2.querySelectorAll('.morph-progress-step');
+    if (!steps.length) return;
+
+    let currentIdx = 0;
+    let timer = null;
+    const totalSteps = steps.length;
+    const duration = 4500; // 4.5s auto-progression
+
+    function setPhase(idx) {
+      currentIdx = idx;
+      steps.forEach((el, i) => el.classList.toggle('active', i === idx));
+      cards.forEach((el, i) => el.classList.toggle('active', i === idx));
+      btns.forEach((el, i) => el.classList.toggle('active', i === idx));
+    }
+
+    function startCycle() {
+      stopCycle();
+      timer = setInterval(() => {
+        setPhase((currentIdx + 1) % totalSteps);
+      }, duration);
+    }
+
+    function stopCycle() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    // Direct click on any tab button
+    btns.forEach((btn, idx) => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const vh = window.innerHeight;
-        const totalDist = stage2.offsetHeight - vh;
-        const targetP = idx === 0 ? 0.08 : (idx === 1 ? 0.48 : 0.82);
-        const stageTop = window.scrollY + stage2.getBoundingClientRect().top;
-        const targetScroll = stageTop + (targetP * totalDist);
-        window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+        setPhase(idx);
+        startCycle();
       });
     });
+
+    // Pause on hover
+    stage2.addEventListener('mouseenter', stopCycle);
+    stage2.addEventListener('mouseleave', startCycle);
+
+    // Initial phase
+    setPhase(0);
+    startCycle();
   }
 
   // Initialize all on DOM ready
@@ -640,7 +648,7 @@
     initHeroTilt();
     initMagneticButtons();
     initCinematicScroll();
-    initMorphProgressButtons();
+    initMorphStepController();
     initScrollReveals();
     initManufacturingJourney();
     initEstimator();
@@ -651,7 +659,7 @@
   window.initMotionModules = function () {
     initScrollReveals();
     initMagneticButtons();
-    initMorphProgressButtons();
+    initMorphStepController();
     initManufacturingJourney();
     initRotatingEarthGlobe();
   };

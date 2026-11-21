@@ -213,8 +213,8 @@
       }
     );
 
-    // Add Atlas by default
-    atlasLayer.addTo(map);
+    // Add Satellite by default as requested by user
+    satelliteLayer.addTo(map);
 
     // Layer Toggle Handlers
     const layerButtons = document.querySelectorAll('.btn-map-layer');
@@ -224,12 +224,14 @@
         btn.classList.add('active');
 
         const mode = btn.getAttribute('data-layer');
-        if (mode === 'satellite') {
-          map.removeLayer(atlasLayer);
-          satelliteLayer.addTo(map);
-        } else {
+        if (mode === 'atlas') {
           map.removeLayer(satelliteLayer);
           atlasLayer.addTo(map);
+          routePolylines.forEach(l => l.setStyle({ color: '#5C1324', opacity: 0.85 }));
+        } else {
+          map.removeLayer(atlasLayer);
+          satelliteLayer.addTo(map);
+          routePolylines.forEach(l => l.setStyle({ color: '#E5A93C', opacity: 0.9 }));
         }
       });
     });
@@ -312,11 +314,11 @@
         </div>
       `);
 
-      // Maritime Trade Route Polyline
+      // Maritime Trade Route Polyline (Radiant Gold for Satellite Realism)
       const routeLine = L.polyline(dest.waypoints, {
-        color: '#5C1324',
+        color: '#E5A93C',
         weight: 2.4,
-        opacity: 0.72,
+        opacity: 0.88,
         dashArray: '5, 8',
         lineCap: 'round',
         lineJoin: 'round',
@@ -325,10 +327,11 @@
 
       // Hover / Click Effects on Route
       routeLine.on('mouseover', function () {
-        this.setStyle({ color: '#BD9057', weight: 3.5, opacity: 0.95 });
+        this.setStyle({ color: '#FFFFFF', weight: 3.5, opacity: 1.0 });
       });
       routeLine.on('mouseout', function () {
-        this.setStyle({ color: '#5C1324', weight: 2.4, opacity: 0.72 });
+        const isAtlas = document.querySelector('.btn-map-layer[data-layer="atlas"].active');
+        this.setStyle({ color: isAtlas ? '#5C1324' : '#E5A93C', weight: 2.4, opacity: 0.88 });
       });
       routeLine.on('click', function () {
         marker.openPopup();
