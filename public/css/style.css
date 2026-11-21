@@ -1,68 +1,67 @@
 /* ==========================================================================
-   SAHU GLOBAL PRIVATE LIMITED — ROYAL HERITAGE LUXURY
-   Bespoke Human-Crafted Editorial Design System (Bright, Luminous, Regal)
-   Warm Alabaster Ivory • Imperial Royal Burgundy • Antique Cognac Gold • Deep Espresso
-   Zero Dimness • High-Contrast Crystal-Clear Typography • Zero Boring Blue
+   SAHU GLOBAL PRIVATE LIMITED (SGBL) — BESPOKE OLIVE GREEN DESIGN SYSTEM
+   Deep Olive Green (#3B482E) • Light Olive Green (#84986E) • Pale Sage Green (#F4F7F2)
+   High-Contrast Modern Sans-Serif & Editorial Elegance
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cinzel:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
   /* ========================================================================
-     1. BRIGHT LUMINOUS FOUNDATION (High Fashion Warm Ivory & Pure Linen)
+     1. VERY LIGHTISH GREEN BACKGROUND FOUNDATION
      ======================================================================== */
-  --color-bg: #FAF8F5;              /* Haute Alabaster Ivory — warm, luminous, airy */
-  --color-bg-alt: #F2ECE3;          /* Warm Cashmere Linen — alternate section tone */
-  --color-bg-muted: #EDE6DC;        /* Soft Sand Stone */
+  --color-bg: #F4F7F2;              /* Very lightish green / pale sage — luminous, fresh, clean */
+  --color-bg-alt: #EBF1E8;          /* Soft cashmere olive/sage — alternate section tone */
+  --color-bg-muted: #E0E8DC;        /* Subdued sage */
   --color-surface: #FFFFFF;         /* Crisp Pure White Surface for Cards */
-  --color-surface-hover: #FDFCFA;   /* Micro-lift surface */
+  --color-surface-hover: #F8FAF6;   /* Micro-lift surface */
 
   /* ========================================================================
-     2. ROYAL PRESTIGE ACCENTS (Warm, Regal, Indian Textile Heritage - NO Blue)
+     2. DARK OLIVE GREEN & LIGHT OLIVE GREEN ACCENTS (from SGBL Logo)
      ======================================================================== */
-  --royal-burgundy: #5C1324;        /* Imperial Oxblood Burgundy (Primary Royal Signature) */
-  --royal-burgundy-light: #781B32;  /* Bright Merlot Accent */
-  --royal-burgundy-deep: #400B17;   /* Deep Velvet Wine */
-  --royal-burgundy-subtle: rgba(92, 19, 36, 0.08);
+  --royal-burgundy: #3B482E;        /* Deep Olive Green (Primary Signature - Exact SGBL Logo Tone) */
+  --royal-burgundy-light: #4E5F3D;  /* Rich Woodland Olive Accent */
+  --royal-burgundy-deep: #2A3420;   /* Deepest Forest Olive */
+  --royal-burgundy-subtle: rgba(59, 72, 46, 0.08);
 
-  --royal-gold: #A37745;            /* Antique Cognac Gold (Refined Luxury Bullion) */
-  --royal-gold-bright: #BD9057;     /* Luminous Bullion Accent */
-  --royal-gold-subtle: rgba(163, 119, 69, 0.12);
-  --royal-gold-muted: rgba(163, 119, 69, 0.22);
-
-  /* ========================================================================
-     3. HIGH-CONTRAST TYPOGRAPHY (Crystal Clear, Deep & Razor Sharp)
-     ======================================================================== */
-  --text-title: #140F0D;            /* Deep Espresso Noir — authoritative headline punch */
-  --text-body: #342B26;             /* Warm Dark Roast Charcoal — effortless reading */
-  --text-muted: #6B5E55;            /* Warm Slate Umber — metadata and captions */
-  --text-on-dark-title: #FAF8F5;    /* Crisp Ivory on dark sections */
-  --text-on-dark-body: #D9CFC4;     /* Sand on dark sections */
-  --text-on-dark-muted: #9C8F84;    /* Muted sand on dark sections */
+  --royal-gold: #687A54;            /* Olive Green Midtone */
+  --royal-gold-bright: #84986E;     /* Olive Light Green Accent */
+  --royal-gold-subtle: rgba(104, 122, 84, 0.12);
+  --royal-gold-muted: rgba(104, 122, 84, 0.22);
 
   /* ========================================================================
-     4. CRISP REFINED BORDERS & SHADOWS (No Blurry Halos)
+     3. HIGH-CONTRAST TYPOGRAPHY (Crystal Clear, Deep Olive Noir & Razor Sharp)
      ======================================================================== */
-  --border-light: rgba(163, 119, 69, 0.18);
-  --border-strong: rgba(163, 119, 69, 0.42);
-  --border-subtle: #E6DFD4;
+  --text-title: #1A2216;            /* Deep Forest Noir — authoritative headline punch */
+  --text-body: #2E382A;             /* Warm Olive Charcoal — effortless reading */
+  --text-muted: #5D6B57;            /* Muted Slate Olive — metadata and captions */
+  --text-on-dark-title: #F4F7F2;    /* Crisp Pale Sage on dark sections */
+  --text-on-dark-body: #D5DFD2;     /* Soft sage on dark sections */
+  --text-on-dark-muted: #9BAA95;    /* Muted olive on dark sections */
+
+  /* ========================================================================
+     4. CRISP REFINED OLIVE BORDERS & SHADOWS
+     ======================================================================== */
+  --border-light: rgba(59, 72, 46, 0.16);
+  --border-strong: rgba(59, 72, 46, 0.38);
+  --border-subtle: #DEE6DB;
   --border-dark: rgba(255, 255, 255, 0.12);
-  --border-burgundy: rgba(92, 19, 36, 0.3);
+  --border-burgundy: rgba(59, 72, 46, 0.35);
 
-  --shadow-warm-xs: 0 2px 8px rgba(30, 20, 15, 0.04);
-  --shadow-warm-sm: 0 6px 18px rgba(30, 20, 15, 0.06);
-  --shadow-warm-md: 0 12px 32px rgba(30, 20, 15, 0.08);
-  --shadow-warm-lg: 0 20px 48px rgba(30, 20, 15, 0.12);
+  --shadow-warm-xs: 0 2px 8px rgba(25, 35, 20, 0.04);
+  --shadow-warm-sm: 0 6px 18px rgba(25, 35, 20, 0.06);
+  --shadow-warm-md: 0 12px 32px rgba(25, 35, 20, 0.08);
+  --shadow-warm-lg: 0 20px 48px rgba(25, 35, 20, 0.12);
 
   /* ========================================================================
-     5. CONTRAST DARK SECTIONS (Selective Velvet Punch)
+     5. CONTRAST DARK SECTIONS (Deep Olive Obsidian)
      ======================================================================== */
-  --dark-section-bg: #1A1312;       /* Deep Velvet Espresso */
-  --dark-card-bg: #221B19;          /* Elevated Velvet Card */
+  --dark-section-bg: #1A2216;       /* Deep Woodland Obsidian */
+  --dark-card-bg: #232C1E;          /* Elevated Olive Card */
 
   /* Typography Fonts */
   --font-serif: 'Playfair Display', Georgia, serif;
-  --font-royal: 'Cinzel', 'Playfair Display', Georgia, serif;
+  --font-royal: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
@@ -276,24 +275,47 @@ p {
 .logo-wrapper {
   display: inline-flex;
   align-items: center;
+  gap: 0.95rem;
   text-decoration: none;
-  color: var(--text-title);
   flex-shrink: 0;
   transition: opacity var(--transition-fast);
 }
 
 .logo-wrapper:hover {
-  opacity: 0.85;
+  opacity: 0.88;
+}
+
+.brand-logo-img {
+  height: clamp(32px, 3.8vh, 38px);
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.logo-text-block {
+  display: flex;
+  flex-direction: column;
 }
 
 .brand-name {
-  font-family: var(--font-royal);
-  font-size: clamp(1.22rem, 1.55vw, 1.42rem);
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-family: var(--font-sans);
+  font-size: clamp(1.15rem, 1.45vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-title);
+  color: var(--royal-burgundy);
+  line-height: 1.1;
+}
+
+.brand-sub {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--royal-gold);
+  font-weight: 600;
   line-height: 1;
+  margin-top: 2px;
 }
 
 /* Spacious, Un-congested Luxury Navigation */
@@ -2858,6 +2880,188 @@ textarea.form-control {
   .cert-badges-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+/* Headquarters Facility Satellite Section */
+.hq-location-section {
+  padding: 6.5rem 0;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hq-map-card {
+  background: var(--color-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-warm-md);
+  margin-top: 2.5rem;
+}
+
+.hq-map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.15rem 1.75rem;
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hq-map-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.live-beacon-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--royal-burgundy);
+  background: rgba(59, 72, 46, 0.08);
+  padding: 0.35rem 0.75rem;
+  border-radius: 2px;
+  border: 1px solid rgba(59, 72, 46, 0.2);
+}
+
+.beacon-circle {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+  animation: pulseBeacon 2s infinite ease-in-out;
+}
+
+.hq-address-tag {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-title);
+  letter-spacing: 0.04em;
+}
+
+.hq-map-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sat-view-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: var(--royal-burgundy);
+  padding: 0.4rem 0.85rem;
+  border-radius: 2px;
+  letter-spacing: 0.08em;
+}
+
+.btn-hq-directions {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--royal-burgundy);
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+}
+
+.btn-hq-directions:hover {
+  background: var(--royal-burgundy);
+  color: #FFFFFF;
+}
+
+.noida-satellite-map {
+  width: 100%;
+  height: 480px;
+  background: #1A2216;
+  z-index: 1;
+}
+
+.hq-facility-meta-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  background: var(--color-bg-alt);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.meta-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.meta-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--royal-gold);
+  text-transform: uppercase;
+}
+
+.meta-col strong {
+  font-size: 0.88rem;
+  color: var(--text-title);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.company-quick-facts-grid {
+  margin-top: 2.75rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.fact-card {
+  background: var(--color-surface);
+  padding: 1.5rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--royal-burgundy);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.fact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-warm-sm);
+}
+
+@media (max-width: 960px) {
+  .company-quick-facts-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .hq-facility-meta-bar {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .company-quick-facts-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hq-facility-meta-bar {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Perfect Screen-Fit for Short Viewports & Laptops */

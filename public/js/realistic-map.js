@@ -387,10 +387,88 @@
     });
   }
 
+  // Dedicated Satellite View Map for Noida Headquarters & Manufacturing Units
+  function initNoidaHqMap() {
+    const noidaContainer = document.getElementById('noida-satellite-map');
+    if (!noidaContainer || typeof L === 'undefined') return;
+
+    // A-204 Sector 63, Sahu Global Head Office, Noida, Uttar Pradesh 201301, IN
+    const noidaCoords = [28.6280, 77.3789];
+
+    const hqMap = L.map('noida-satellite-map', {
+      center: noidaCoords,
+      zoom: 17,
+      minZoom: 14,
+      maxZoom: 19,
+      scrollWheelZoom: false,
+      zoomControl: true,
+      attributionControl: true
+    });
+
+    // High-Resolution Photorealistic Satellite Imagery (Esri World Imagery)
+    L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      {
+        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP',
+        maxZoom: 19
+      }
+    ).addTo(hqMap);
+
+    // Custom Sahu Global Olive Pin Marker
+    const hqIcon = L.divIcon({
+      className: 'sg-custom-marker-wrapper',
+      html: `
+        <div class="sg-map-marker-origin" style="width: 44px; height: 44px;">
+          <div class="sg-origin-pulse" style="background: rgba(59, 72, 46, 0.45);"></div>
+          <div class="sg-origin-core" style="width: 28px; height: 28px; background: #3B482E; border-color: #84986E; font-size: 14px;">★</div>
+          <div class="sg-origin-tag" style="background: #1A2216; border: 1px solid #84986E;">SAHU GLOBAL HEAD OFFICE & UNITS</div>
+        </div>
+      `,
+      iconSize: [44, 44],
+      iconAnchor: [22, 22],
+      popupAnchor: [0, -24]
+    });
+
+    const marker = L.marker(noidaCoords, { icon: hqIcon }).addTo(hqMap);
+
+    marker.bindPopup(`
+      <div class="map-popup-card" style="min-width: 280px; max-width: 340px;">
+        <div class="map-popup-badge" style="color: #687A54;">CORPORATE HEAD OFFICE & PRODUCTION CAMPUS</div>
+        <h3 class="map-popup-title" style="color: #1A2216; font-size: 1.22rem;">Sahu Global Private Limited</h3>
+        <p style="font-size: 0.84rem; color: #2E382A; margin: 0.4rem 0 0.6rem; line-height: 1.55;">
+          <strong>Address:</strong> A-204 Sector 63, Sahu Global Head Office, Noida, Uttar Pradesh 201301, India
+        </p>
+        <div class="map-popup-meta" style="font-size: 0.8rem;">
+          <div>Founder: <strong>Mr. R.K Sahu (Founded 1979)</strong></div>
+          <div>Industry: <strong>Apparel Manufacturing & Export</strong></div>
+          <div>Company Size: <strong>10,001+ Employees</strong></div>
+          <div>Capabilities: <strong>3D CAD Labs, CNC Cutting, Modular Lean Sewing</strong></div>
+        </div>
+        <div class="map-popup-transit" style="background: rgba(104, 122, 84, 0.15); border-left-color: #687A54;">
+          HIGH-RESOLUTION SATELLITE VIEW • ACTIVE EXPORT HUB
+        </div>
+      </div>
+    `);
+
+    // Open popup after map ready
+    setTimeout(() => {
+      marker.openPopup();
+    }, 600);
+
+    window.addEventListener('resize', () => {
+      hqMap.invalidateSize();
+    });
+  }
+
   // Initialize on DOM ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initRealisticMap);
-  } else {
+  function initAllMaps() {
     initRealisticMap();
+    initNoidaHqMap();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAllMaps);
+  } else {
+    initAllMaps();
   }
 })();
