@@ -158,91 +158,93 @@
 
   // 4. Buyer Enquiry Form Submission
   function initEnquiryForm() {
-    const form = document.getElementById('buyer-enquiry-form');
-    const fileInput = document.getElementById('enq-techpack');
-    const fileNameDisplay = document.getElementById('file-chosen-name');
+    const forms = document.querySelectorAll('.enquiry-form');
+    if (!forms.length) return;
 
-    if (fileInput && fileNameDisplay) {
-      fileInput.addEventListener('change', () => {
-        if (fileInput.files.length > 0) {
-          fileNameDisplay.textContent = `Selected: ${fileInput.files[0].name} (${(fileInput.files[0].size / 1024 / 1024).toFixed(2)} MB)`;
-        } else {
-          fileNameDisplay.textContent = '';
+    forms.forEach(form => {
+      const fileInput = form.querySelector('input[type="file"]');
+      const fileNameDisplay = form.querySelector('.file-selected-name, .file-chosen-name-display');
+
+      if (fileInput && fileNameDisplay) {
+        fileInput.addEventListener('change', () => {
+          if (fileInput.files.length > 0) {
+            fileNameDisplay.textContent = `Selected: ${fileInput.files[0].name} (${(fileInput.files[0].size / 1024 / 1024).toFixed(2)} MB)`;
+          } else {
+            fileNameDisplay.textContent = '';
+          }
+        });
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const btnSubmit = form.querySelector('button[type="submit"]');
+        const originalBtnText = btnSubmit.innerHTML;
+
+        // Extract form fields scoped to this specific form
+        const fullName = form.querySelector('.enq-name-input')?.value || form.querySelector('#enq-name')?.value || '';
+        const companyName = form.querySelector('.enq-company-input')?.value || form.querySelector('#enq-company')?.value || '';
+        const businessEmail = form.querySelector('.enq-email-input')?.value || form.querySelector('#enq-email')?.value || '';
+        const phone = form.querySelector('.enq-phone-input')?.value || form.querySelector('#enq-phone')?.value || '';
+        const country = form.querySelector('.enq-country-input')?.value || form.querySelector('#enq-country')?.value || '';
+        const productInterest = form.querySelector('.enq-product-input')?.value || form.querySelector('#enq-product')?.value || '';
+        const approximateVolume = form.querySelector('.enq-volume-input')?.value || form.querySelector('#enq-volume')?.value || '';
+        const message = form.querySelector('.enq-message-input')?.value || form.querySelector('#enq-message')?.value || '';
+        const consent = form.querySelector('input[type="checkbox"]')?.checked ?? true;
+        const honeypot = form.querySelector('input[name="honeypot"]')?.value || '';
+
+        if (!consent) {
+          alert('Please accept the verification terms and privacy consent.');
+          return;
+        }
+
+        // Show submitting state
+        btnSubmit.disabled = true;
+        btnSubmit.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin">
+            <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
+            <path d="M12 2a10 10 0 0 1 10 10"></path>
+          </svg>
+          <span>Securing & Submitting Enquiry...</span>
+        `;
+
+        try {
+          const file = fileInput && fileInput.files.length > 0 ? fileInput.files[0] : null;
+          const newLead = await window.addNewBuyerEnquiry({
+            fullName,
+            companyName,
+            businessEmail,
+            phone,
+            country,
+            productInterest,
+            approximateVolume,
+            message,
+            honeypot
+          }, file);
+
+          // Update Thank-you page details
+          const confirmName = document.getElementById('confirm-lead-company');
+          const confirmId = document.getElementById('confirm-lead-id');
+          if (confirmName) confirmName.textContent = companyName;
+          if (confirmId) confirmId.textContent = newLead.id;
+
+          form.reset();
+          if (fileNameDisplay) fileNameDisplay.textContent = '';
+
+          if (window.showToast) {
+            window.showToast(`Enquiry ${newLead.id} logged. Redirecting...`);
+          }
+
+          setTimeout(() => {
+            window.location.hash = '#thank-you';
+          }, 600);
+        } catch (err) {
+          alert('An error occurred submitting your enquiry. Please email procurement@sahuglobal.com directly.');
+        } finally {
+          btnSubmit.disabled = false;
+          btnSubmit.innerHTML = originalBtnText;
         }
       });
-    }
-
-    if (!form) return;
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const btnSubmit = form.querySelector('button[type="submit"]');
-      const originalBtnText = btnSubmit.innerHTML;
-
-      // Extract form fields
-      const fullName = document.getElementById('enq-name').value;
-      const companyName = document.getElementById('enq-company').value;
-      const businessEmail = document.getElementById('enq-email').value;
-      const phone = document.getElementById('enq-phone').value;
-      const country = document.getElementById('enq-country').value;
-      const productInterest = document.getElementById('enq-product').value;
-      const approximateVolume = document.getElementById('enq-volume').value;
-      const message = document.getElementById('enq-message').value;
-      const consent = document.getElementById('enq-consent').checked;
-      const honeypot = document.getElementById('enq-hp') ? document.getElementById('enq-hp').value : '';
-
-      if (!consent) {
-        alert('Please accept the verification terms and privacy consent.');
-        return;
-      }
-
-      // Show submitting state
-      btnSubmit.disabled = true;
-      btnSubmit.innerHTML = `
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin">
-          <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
-          <path d="M12 2a10 10 0 0 1 10 10"></path>
-        </svg>
-        <span>Securing & Submitting Enquiry...</span>
-      `;
-
-      try {
-        const file = fileInput && fileInput.files.length > 0 ? fileInput.files[0] : null;
-        const newLead = await window.addNewBuyerEnquiry({
-          fullName,
-          companyName,
-          businessEmail,
-          phone,
-          country,
-          productInterest,
-          approximateVolume,
-          message,
-          honeypot
-        }, file);
-
-        // Update Thank-you page details
-        const confirmName = document.getElementById('confirm-lead-company');
-        const confirmId = document.getElementById('confirm-lead-id');
-        if (confirmName) confirmName.textContent = companyName;
-        if (confirmId) confirmId.textContent = newLead.id;
-
-        form.reset();
-        if (fileNameDisplay) fileNameDisplay.textContent = '';
-
-        if (window.showToast) {
-          window.showToast(`Enquiry ${newLead.id} logged. Redirecting...`);
-        }
-
-        setTimeout(() => {
-          window.location.hash = '#thank-you';
-        }, 600);
-      } catch (err) {
-        alert('An error occurred submitting your enquiry. Please email procurement@sahuglobal.com directly.');
-      } finally {
-        btnSubmit.disabled = false;
-        btnSubmit.innerHTML = originalBtnText;
-      }
     });
   }
 
