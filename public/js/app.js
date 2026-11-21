@@ -277,7 +277,38 @@
     }
   }
 
-  // 6. Bootstrap Application
+  // 6. Cookie Consent Handling (Image 2 Reference)
+  function initCookieConsent() {
+    const bar = document.getElementById('cookie-consent-bar');
+    const btnAccept = document.getElementById('btn-cookie-accept');
+    const btnDecline = document.getElementById('btn-cookie-decline');
+
+    if (!bar) return;
+
+    const consent = localStorage.getItem('sg_cookie_consent');
+    if (consent) {
+      bar.classList.add('dismissed');
+      document.body.classList.add('cookie-dismissed');
+    }
+
+    if (btnAccept) {
+      btnAccept.addEventListener('click', () => {
+        localStorage.setItem('sg_cookie_consent', 'accepted');
+        bar.classList.add('dismissed');
+        document.body.classList.add('cookie-dismissed');
+      });
+    }
+
+    if (btnDecline) {
+      btnDecline.addEventListener('click', () => {
+        localStorage.setItem('sg_cookie_consent', 'declined');
+        bar.classList.add('dismissed');
+        document.body.classList.add('cookie-dismissed');
+      });
+    }
+  }
+
+  // 7. Bootstrap Application
   document.addEventListener('DOMContentLoaded', async () => {
     // Initialize CMS Module & Data
     if (window.initCmsModule) {
@@ -292,9 +323,10 @@
       renderPublicContent();
     });
 
-    // Form and Navigation
+    // Form, Navigation & Cookie
     initEnquiryForm();
     initMobileDrawer();
+    initCookieConsent();
 
     // Handle Route
     window.addEventListener('hashchange', handleHashChange);

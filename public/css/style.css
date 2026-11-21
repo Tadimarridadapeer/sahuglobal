@@ -518,10 +518,15 @@ p {
   flex-direction: column;
   justify-content: flex-end;
   padding-top: var(--header-height);
-  padding-bottom: 0;
+  padding-bottom: 52px;
   background: radial-gradient(circle at 48% 46%, rgba(200, 115, 60, 0.08) 0%, rgba(250, 246, 240, 0) 58%), #FAF6F0;
   overflow: hidden;
   box-sizing: border-box;
+  transition: padding-bottom var(--transition-normal);
+}
+
+body.cookie-dismissed .hero-section {
+  padding-bottom: 0;
 }
 
 .hero-grid {
@@ -530,17 +535,22 @@ p {
   gap: clamp(2rem, 4.5vw, 5rem);
   align-items: flex-end;
   width: 100%;
-  height: calc(100vh - var(--header-height));
+  height: calc(100vh - var(--header-height) - 52px);
   box-sizing: border-box;
+  transition: height var(--transition-normal);
+}
+
+body.cookie-dismissed .hero-grid {
+  height: calc(100vh - var(--header-height));
 }
 
 .hero-copy {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-self: center;
-  padding-top: clamp(1rem, 2vh, 2rem);
-  padding-bottom: clamp(2rem, 4vh, 3.5rem);
+  align-self: flex-start;
+  padding-top: clamp(1.5rem, 3.5vh, 2.8rem);
+  padding-bottom: 1rem;
   z-index: 2;
 }
 
@@ -660,15 +670,21 @@ p {
   position: relative;
   width: 100%;
   max-width: 530px;
-  height: calc(100vh - var(--header-height) - clamp(0.5rem, 1.5vh, 1.5rem));
-  max-height: 680px;
-  min-height: 460px;
+  height: calc(100vh - var(--header-height) - 52px);
+  max-height: 640px;
+  min-height: 420px;
   border-radius: 280px 280px 0 0;
   overflow: hidden;
   background: #0E6B7A;
   box-shadow: 0 20px 48px rgba(24, 18, 16, 0.12);
   display: flex;
   flex-direction: column;
+  transition: height var(--transition-normal), max-height var(--transition-normal);
+}
+
+body.cookie-dismissed .hero-arch-card {
+  height: calc(100vh - var(--header-height));
+  max-height: 680px;
 }
 
 .hero-arch-card img {
@@ -686,11 +702,11 @@ p {
 /* Floating Micro Pill at Arch Bottom */
 .arch-stage-pill {
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 1.25rem;
   left: 1.5rem;
   background: #FFFFFF;
   color: #140F0D;
-  padding: 0.7rem 1.45rem;
+  padding: 0.65rem 1.35rem;
   border-radius: 4px;
   font-family: var(--font-mono);
   font-size: 0.74rem;
@@ -708,6 +724,104 @@ p {
   color: #C45E2C;
   font-weight: 800;
   font-size: 0.88rem;
+}
+
+/* ==========================================================================
+   COOKIE CONSENT BAR (Docked at Bottom, from Image 2 Reference)
+   ========================================================================== */
+.cookie-consent-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #181210;
+  border-top: 1px solid rgba(163, 119, 69, 0.25);
+  z-index: 990;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.35);
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+.cookie-consent-bar.dismissed {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cookie-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.7rem clamp(1.25rem, 4vw, 3.5rem);
+  min-height: 52px;
+}
+
+.cookie-text {
+  font-family: var(--font-sans);
+  font-size: clamp(0.76rem, 0.88vw, 0.85rem);
+  color: #D9CFC4;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.cookie-text a {
+  color: #C45E2C;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.cookie-text a:hover {
+  color: #FFFFFF;
+}
+
+.cookie-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.btn-cookie-decline {
+  background: transparent;
+  color: #FAF8F5;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-xs);
+  padding: 0.45rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-cookie-decline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #FAF8F5;
+}
+
+.btn-cookie-accept {
+  background: #C45E2C;
+  color: #FFFFFF;
+  border: 1px solid #C45E2C;
+  border-radius: var(--radius-xs);
+  padding: 0.45rem 1.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 10px rgba(196, 94, 44, 0.35);
+}
+
+.btn-cookie-accept:hover {
+  background: #D96F3A;
+  border-color: #D96F3A;
+  transform: translateY(-1px);
 }
 
 /* ==========================================================================
@@ -2371,12 +2485,22 @@ textarea.form-control {
 @media (max-width: 960px) {
   .desktop-nav, .header-actions .btn-nav-rfq, .header-actions .nav-portal-badge { display: none; }
   .menu-toggle { display: block; }
+  .cookie-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.85rem 1.25rem;
+  }
+  .cookie-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
   .hero-section {
     height: auto !important;
     min-height: calc(100vh - var(--header-height)) !important;
     max-height: none !important;
     padding-top: calc(var(--header-height) + 2rem) !important;
-    padding-bottom: 3.5rem !important;
+    padding-bottom: 5.5rem !important;
     overflow: visible !important;
   }
   .hero-grid {
@@ -2384,8 +2508,11 @@ textarea.form-control {
     max-height: none !important;
     gap: 2.5rem;
   }
+  .hero-copy {
+    padding-top: 0;
+  }
   .hero-arch-card {
-    height: 460px;
+    height: 440px;
     max-width: 380px;
     margin: 0 auto;
     border-radius: 200px 200px 0 0;
