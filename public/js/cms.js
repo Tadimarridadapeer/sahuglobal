@@ -172,10 +172,9 @@
         <!-- Sidebar -->
         <aside class="admin-sidebar">
           <div class="admin-sidebar-header">
-            <div class="admin-logo-badge">SG</div>
+            <img src="assets/sahu-logo-hires.png" alt="SGBL" style="height: 24px; width: auto; object-fit: contain;">
             <div class="admin-sidebar-brand">
-              <h3>Sahu Global</h3>
-              <span>CMS & Lead Portal</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted, #5D6B57); font-weight: 500;">Lead & CMS Portal</span>
             </div>
           </div>
 
@@ -275,7 +274,7 @@
         <div class="admin-login-card" onclick="event.stopPropagation()">
           <button type="button" class="admin-close-modal-btn" id="btn-close-admin-modal" aria-label="Close Portal" title="Close Portal (Esc)">✕</button>
           <div style="text-align: center; margin-bottom: 1.75rem;">
-            <div style="width: 48px; height: 48px; background: var(--royal-burgundy, #3B482E); border: 1px solid var(--royal-gold, #687A54); color: #FFFFFF; border-radius: var(--radius-xs); margin: 0 auto 1rem auto; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--font-royal, 'Plus Jakarta Sans'); font-size: 1.2rem; box-shadow: 0 4px 12px rgba(59, 72, 46, 0.25);">SG</div>
+            <img src="assets/sahu-logo-hires.png" alt="SGBL" style="height: 34px; width: auto; margin: 0 auto 1rem auto; display: block; object-fit: contain;">
             <h2 style="font-family: var(--font-royal, 'Plus Jakarta Sans'); font-size: 1.6rem; font-weight: 800; color: var(--text-title, #1A2216); margin-bottom: 0.35rem; letter-spacing: -0.01em;">Sahu Global Client Portal</h2>
             <p style="font-size: 0.88rem; color: var(--text-muted, #5D6B57);">B2B Client Management & Lead Verification</p>
           </div>
